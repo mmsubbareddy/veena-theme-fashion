@@ -5,6 +5,7 @@
       "blocks": {
         "heading": {
           "type": "heading",
+          "disabled": true,
           "settings": {
             "heading": "Browse our latest products",
             "heading_size": "h0"
@@ -12,6 +13,7 @@
         },
         "button": {
           "type": "buttons",
+          "disabled": true,
           "settings": {
             "button_label_1": "Shop all",
             "button_link_1": "shopify:\/\/collections\/all",
@@ -26,6 +28,7 @@
         "heading",
         "button"
       ],
+      "disabled": true,
       "settings": {
         "image_overlay_opacity": 40,
         "image_height": "large",
@@ -41,6 +44,7 @@
     },
     "featured_collection": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Featured products",
         "heading_size": "h2",
@@ -66,10 +70,72 @@
         "padding_top": 44,
         "padding_bottom": 36
       }
+    },
+    "image_banner_section_G8Ljay": {
+      "type": "image-banner-section",
+      "blocks": {
+        "slider_content_6pyrDJ": {
+          "type": "slider-content",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/1.png",
+            "mobile_image": "shopify:\/\/shop_images\/1.png",
+            "list_content": "Women's Apparel",
+            "heading_content": "<h1>Elevate your wardrobe with our <a href=\"https:\/\/veena-theme-fashion.myshopify.com\/collections\" title=\"All collections\">limited-time<\/a> fashion offer!<\/h1>",
+            "color_scheme": "scheme_1",
+            "button_text": "Explore More",
+            "button_link": "shopify:\/\/collections",
+            "text_position": "center",
+            "content_position": "justify-center align-center"
+          }
+        },
+        "slider_content_zDJyBF": {
+          "type": "slider-content",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/4.png",
+            "mobile_image": "shopify:\/\/shop_images\/4.png",
+            "list_content": "Trendy Classics",
+            "heading_content": "<h1>Discover Signature Look: Fashion Forward and Fabulous!<\/h1>",
+            "color_scheme": "scheme_1",
+            "button_text": "Shop Now",
+            "button_link": "shopify:\/\/collections",
+            "text_position": "left",
+            "content_position": "justify-center align-start"
+          }
+        },
+        "slider_content_Dfn6Gn": {
+          "type": "slider-content",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/3.png",
+            "mobile_image": "shopify:\/\/shop_images\/3.png",
+            "list_content": "Modern Elegance",
+            "heading_content": "<h1>Step into the World of Style with the Latest Fashion Trends Unveiled!<\/h1>",
+            "color_scheme": "scheme_1",
+            "button_text": "Explore Now",
+            "button_link": "shopify:\/\/collections",
+            "text_position": "center",
+            "content_position": "justify-end align-start"
+          }
+        }
+      },
+      "block_order": [
+        "slider_content_6pyrDJ",
+        "slider_content_zDJyBF",
+        "slider_content_Dfn6Gn"
+      ],
+      "settings": {
+        "enable_autoplay": true,
+        "enable_dots": true,
+        "rewind_slides": true,
+        "enable_arrows": true,
+        "slide_animation": "loop",
+        "padding_top": 16,
+        "padding_bottom": 16
+      }
     }
   },
   "order": [
     "image_banner",
-    "featured_collection"
+    "featured_collection",
+    "image_banner_section_G8Ljay"
   ]
 }

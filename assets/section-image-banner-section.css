@@ -1,0 +1,123 @@
+
+.splide__slide img {
+    vertical-align: bottom;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+.splide__slide{
+    position: relative;
+    top:0px;
+    left:0px;
+}
+
+.image-banner__under-order-list{
+    border-radius:20px;
+    border:0.8px solid white;
+    font-size: 14px;
+    font-weight: 500;
+    margin:0px 0px 10px;
+    padding:0px 13px 0px 30px;
+    display: inline-block;
+    
+}
+h1 a{
+    color:inherit;
+    text-decoration: none;
+}
+h1 a:hover{
+    color: #D03c3f;
+    text-decoration: underline;
+}
+
+ 
+ .image-banner__button{
+    background: white;
+    color: black;
+    outline: none ;
+    border-width:0px ;
+ }
+ .image-banner__button:hover{
+    color: #D03c3f;
+    outline: none ;
+ }
+
+ 
+ button.splide__arrow.splide__arrow--prev{
+    top: unset;
+    bottom: 1%;
+    transform : unset;
+    background: none;
+    cursor: pointer;
+    left: 40%;
+  
+  }
+  
+  
+  button.splide__arrow.splide__arrow--prev svg{
+    fill : #fff;
+    height: 14px;
+    width: 14px;
+    margin-bottom: 20px;
+  }
+  
+ 
+  
+  button.splide__arrow.splide__arrow--next{
+    top: unset;
+    bottom: 1%;
+    transform : unset;
+    background: none;
+    cursor: pointer;
+    right: 40%;
+  }
+  
+  button.splide__arrow.splide__arrow--next svg{
+    fill : #fff;
+    height: 14px;
+    width: 14px;
+    margin-bottom: 20px;
+  }
+  
+  
+  button.splide__pagination__page {
+    width: 8px;
+    height: 8px;
+    margin: 0px 15px;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    border: 1px solid white;
+    margin-bottom: 20px;
+  }
+  button.splide__pagination__page.is-active{
+    width: 30px;
+    border-radius: 10px;
+    background-color: #fff;
+    margin-bottom: 20px;
+
+  }
+
+  @media screen and (max-width:750px){
+    button.splide__arrow.splide__arrow--prev{
+        left: 30%;
+    }
+    button.splide__arrow.splide__arrow--next{
+        right: 30%;
+    }
+    button.splide__pagination__page {
+        margin:8px;
+    }
+   
+    .splide__slide{
+        position: relative;
+        padding-bottom: 100%;
+        
+    }
+    .splide__slide img {
+        position: absolute;
+        object-fit: cover;
+       
+    }
+    
+  }

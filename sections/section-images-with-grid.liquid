@@ -1,0 +1,206 @@
+{{ 'section-images-with-grid.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+.padding-{{ section.id }}{
+    padding-top:{{section.settings.padding_top}}px;
+    padding-top:{{section.settings.padding_top}}px;   
+}
+
+{% for block in section.blocks %}
+    .grid-conatiner__inner-container-{{ block.id }}{
+        width: 293px;
+        text-align:{{block.settings.text_alignment}};
+    }
+    .grid-container__collection-1__content{
+        display:flex;
+        justify-content:center;
+        align-items:{{block.settings.content_alignment}};
+    }
+
+    @media screen and (min-width:749px){
+    .grid-conatiner__inner-container-{{ block.id }}{
+        width: 452px;
+    }
+    .padding-{{ section.id }}{
+        padding-top:{{section.settings.padding_top}}px;
+        padding-top:{{section.settings.padding_top}}px;   
+    }
+}
+{% endfor %}
+{% endstyle %}
+
+
+<div class="padding-{{ section.id }}">
+    <div class="page-width">
+        <div class="grid-container grid grid--1-col grid--2-col-desktop">
+            {% for block in section.blocks %}
+                <div class="grid__item grid-container__collection-1">
+                    {% if block.settings.desktop_image != blank or block.settings.mobile_image !=blank %}
+                        {% render 'responsive-picture',
+                            desktopImage: block.settings.desktop_image,
+                            mobileImage: block.settings.mobile_image
+                        %}
+                        {% else %}
+                        {{ 'collection-1' | placeholder_svg_tag }}
+                    {% endif %}
+                    <div class="grid-container__collection-1__content">
+                        <div class="grid-conatiner__inner-container-{{ block.id }}">
+                        {%  if block.settings.collection_category != blank %}
+                            <ul class="grid-container__under-order-list">
+                              <li>{{ block.settings.collection_category }}</li>
+                            </ul>
+                          {% endif %}
+                          {% if block.settings.heading_content != blank  %}
+                            <h2 class="h2">{{ block.settings.heading_content }}</h2>
+                          {% endif %}
+
+                          {% if  block.settings.button_content != blank %}
+                            <a
+                              {% if block.settings.button_link == blank %}
+                                role="link" aria-disabled="true"
+                              {% else %}
+                                href="{{ block.settings.button_link }}"
+                              {% endif %}
+                              class="button grid-container__button"
+                            >
+                                <span>{{ block.settings.button_content }}</span>
+                            </a>
+                          {% endif %}
+                          </div>
+                    </div>
+
+
+                </div>
+    
+            {% endfor %}
+
+            
+    </div>
+
+</div>
+
+
+
+
+
+{% schema %}
+    {
+        "name":"Grid images section",
+        "tag":"section",
+        "settings":[
+            {
+                "type":"header",
+                "content":"Section Padding"
+            },
+            {
+                "type": "range",
+                "id": "padding_top",
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "unit": "px",
+                "label": "Padding top",
+                "default": 16
+              },
+              {
+                "type": "range",
+                "id": "padding_bottom",
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "unit": "px",
+                "label": "Padding bottom",
+                "default": 16
+              }
+        ],
+        "blocks":[
+            {
+                "name":"Grid Image",
+                "type":"grid-image-with-text",
+                "settings":[
+                      {
+                        "type": "image_picker",
+                        "id": "desktop_image",
+                        "label": "Image(Desktop)"
+                      },
+                      {
+                        "type": "image_picker",
+                        "id": "mobile_image",
+                        "label": "Image(Mobile)"
+                      },
+                      {
+                        "type": "select",
+                        "id": "text_alignment",
+                        "label": "Text position",
+                        "options": [
+                          {
+                            "value": "left",
+                            "label": "Left"
+                          },
+                          {
+                            "value": "center",
+                            "label": "Center"
+                          },
+                          {
+                            "value": "right",
+                            "label": "Right"
+                          }
+                        ],
+                        "default": "center"
+                      },
+                      {
+                        "type": "select",
+                        "id": "content_alignment",
+                        "label": "Content position",
+                        "options": [
+                          {
+                            "value": "start",
+                            "label": "Top"
+                          },
+                          {
+                            "value": "center",
+                            "label": "Center"
+                          },
+                          {
+                            "value": "end",
+                            "label": "Bottom"
+                          }
+                        ],
+                        "default": "center"
+                      },
+                      {
+                        "type": "text",
+                        "id": "collection_category",
+                        "label": "Preheading text",
+                        "default": "Women's"
+                      },
+                      {
+                        "type": "text",
+                        "id": "heading_content",
+                        "label": "Heading text",
+                        "default": "Women's Clothing Collection"
+                      },
+                      {
+                        "type": "text",
+                        "id": "button_content",
+                        "label": "Button text",
+                        "default": "Explore"
+                      },{
+                        "type": "url",
+                        "id": "button_link",
+                        "label": "Button link"
+                      }
+                ]
+            }
+        ],
+        "presets":[
+            {
+                "name":"Grid images section"
+            }
+
+        ]
+    }
+
+
+
+{% endschema %}

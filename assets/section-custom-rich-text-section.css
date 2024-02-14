@@ -1,0 +1,88 @@
+.custom-rich-text__heading{
+    color: #000000;
+    font-size: 52px;
+    letter-spacing: 0.3px;
+    margin: 10px 10px 0px;
+    line-height: 67.68px;
+}
+.custom-rich-text_preheading{
+    color: #000000CC;
+    font-weight: 400;
+    font-size: 16px;
+
+}
+.custom-rich-text__heading a{
+    color: #D03c3f;
+    font-size: 52px;
+    text-decoration: none;
+}
+
+.custom-rich-text__heading a {
+    position: relative;
+  }
+  .custom-rich-text__heading a::before {
+    content: "";
+    position: absolute;
+    background-color: #D03C3F;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    transition: width 0.5s ease-in-out;
+    z-index: -1;
+  }
+  .custom-rich-text__heading a:hover::before {
+    width: 100%;
+  }
+  .custom-rich-text__heading a:not(:hover)::before {
+    width: 0;
+    right: 0;
+    left: auto;
+  }
+
+.custom-rich-text__button-container a{
+    color: white;
+    font-size: 14px;
+    background-color: #D03c3f;
+
+}
+
+.custom-rich-text__button-container a {
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-rich-text__button-container a span {
+  z-index: 3;
+}
+
+.custom-rich-text__button-container a::before {
+  content: "";
+  position: absolute;
+  background-color: #000000;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  transition: width 0.4s ease-in-out;
+  z-index: 1;
+}
+
+.custom-rich-text__button-container a:hover::before {
+  width: 100%;
+}
+
+.custom-rich-text__button-container a:not(:hover)::before {
+  width: 0;
+  right: 0;
+}
+
+
+@media screen and (max-width:750px){
+    .custom-rich-text__heading a{
+        color: #D03c3f;
+        font-size: 52px;
+        text-decoration: none;
+    }
+    
+}

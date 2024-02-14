@@ -1,0 +1,181 @@
+{{ "section-custom-rich-text-section.css" | asset_url | stylesheet_tag }}
+
+{% style %}
+    .padding-{{ section.id }}{
+        padding-top:{{section.settings.padding_top | divided_by:2}}px;
+        padding-bottom:{{section.settings.padding_bottom | divided_by:2}}px;
+    }
+    .custom-rich-text-{{section.id}}{
+        display:flex;
+        align-items:center;
+        justify-content:{{section.settings.content_alignment}};
+    }
+    .custom-rich-text__text-content-{{ section.id }}{
+        text-align:{{section.settings.text_alignment}};
+        max-width:586px;
+        line-height: 28.8px;
+    }
+    @media screen and (min-width:749px){
+      .padding-{{ section.id }}{
+        padding-top:{{section.settings.padding_top }}px;
+        padding-bottom:{{section.settings.padding_bottom }}px;
+    }
+
+    }
+{% endstyle %}
+
+
+
+<div class="padding-{{ section.id }}">
+  <div class="page-width">
+    <div class="custom-rich-text-{{ section.id }}">
+      <div class="custom-rich-text__text-content-{{ section.id }}">
+        {% for block in section.blocks %}
+          {% if block.type == 'pre-heading-content' and block.settings.pre_heading_content != blank %}
+                    <h2 class="custom-rich-text_preheading">{{ block.settings.pre_heading_content }}</h2>
+          {% elsif block.type == 'heading-content' and block.settings.heading_content != blank %}
+            <h2 class="h2 custom-rich-text__heading">
+              {{ block.settings.heading_content }}
+            </h2>
+          {% elsif block.type == 'button-content' and block.settings.button_content != blank %}
+                <div class="custom-rich-text__button-container">
+                    <a
+                    {% if block.settings.button_link == blank %}
+                        role="link" aria-disabled="true"
+                    {% else %}
+                        href="{{ block.settings.button_link }}"
+                    {% endif %}
+                    class="button"
+                    >
+                    <span>{{ block.settings.button_content }}</span>
+                    </a>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom rich text",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Content position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 16
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Pre heading",
+      "type": "pre-heading-content",
+      "settings": [
+        {
+            "type": "text",
+            "id": "pre_heading_content",
+            "label": "Pre heading content",
+            "default": "What You Wear"
+        }
+      ]
+    },
+    {
+      "name": "Heading",
+      "type": "heading-content",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "heading_content",
+          "label": "Heading content",
+          "default": "<p>Fashion Emerges As A Universal Language</p>"
+        }
+        
+      ]
+    },
+    {
+      "name": "Button",
+      "type": "button-content",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_content",
+          "label": "Button label",
+          "default": "Explore More"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom rich text"
+    }
+  ]
+}
+{% endschema %}

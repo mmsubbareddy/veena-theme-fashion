@@ -132,47 +132,78 @@
         "padding_bottom": 16
       }
     },
-    "rich_text_xLrJrF": {
-      "type": "rich-text",
+    "custom_rich_text_section_a3UCFx": {
+      "type": "custom-rich-text-section",
       "blocks": {
-        "heading_Lbbpat": {
-          "type": "heading",
+        "pre_heading_content_xfnPNp": {
+          "type": "pre-heading-content",
           "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
+            "pre_heading_content": "What You Wear"
           }
         },
-        "text_3HN4mg": {
-          "type": "text",
+        "heading_content_yNyWpN": {
+          "type": "heading-content",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+            "heading_content": "<p>Fashion Emerges As A Universal <a href=\"\/collections\" title=\"All collections\">Language<\/a><\/p>"
           }
         },
-        "button_UH3akT": {
-          "type": "button",
+        "button_content_keN6UY": {
+          "type": "button-content",
           "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "button_content": "Explore More",
+            "button_link": "shopify:\/\/collections"
           }
         }
       },
       "block_order": [
-        "heading_Lbbpat",
-        "text_3HN4mg",
-        "button_UH3akT"
+        "pre_heading_content_xfnPNp",
+        "heading_content_yNyWpN",
+        "button_content_keN6UY"
       ],
-      "disabled": true,
       "settings": {
-        "desktop_content_position": "center",
+        "text_alignment": "center",
         "content_alignment": "center",
-        "color_scheme": "",
-        "full_width": false,
-        "padding_top": 40,
-        "padding_bottom": 52
+        "padding_top": 60,
+        "padding_bottom": 41
+      }
+    },
+    "section_images_with_grid_aewcTk": {
+      "type": "section-images-with-grid",
+      "blocks": {
+        "grid_image_with_text_hULE8N": {
+          "type": "grid-image-with-text",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/Rectangle_4264.png",
+            "mobile_image": "shopify:\/\/shop_images\/Rectangle_4264.png",
+            "text_alignment": "center",
+            "content_alignment": "center",
+            "collection_category": "Women's",
+            "heading_content": "Women's Clothing Collection",
+            "button_content": "Explore",
+            "button_link": "shopify:\/\/collections"
+          }
+        },
+        "grid_image_with_text_4yMFt4": {
+          "type": "grid-image-with-text",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/Rectangle_4265.png",
+            "mobile_image": "shopify:\/\/shop_images\/Rectangle_4265.png",
+            "text_alignment": "center",
+            "content_alignment": "center",
+            "collection_category": "Fashion",
+            "heading_content": "Women's Sustainable Style Hub",
+            "button_content": "Explore",
+            "button_link": "shopify:\/\/collections"
+          }
+        }
+      },
+      "block_order": [
+        "grid_image_with_text_hULE8N",
+        "grid_image_with_text_4yMFt4"
+      ],
+      "settings": {
+        "padding_top": 60,
+        "padding_bottom": 40
       }
     }
   },
@@ -180,6 +211,7 @@
     "image_banner",
     "featured_collection",
     "image_banner_section_G8Ljay",
-    "rich_text_xLrJrF"
+    "custom_rich_text_section_a3UCFx",
+    "section_images_with_grid_aewcTk"
   ]
 }

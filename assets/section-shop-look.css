@@ -1,0 +1,91 @@
+.shoplook__grid-image{
+    border-radius: 16px;
+    box-sizing: border-box;
+    position: relative;
+}
+.shoplook_image img{
+    border-radius: 16px;
+    width: 100%;
+    height: 100%;
+}
+
+/* dots related css */
+.shoplook__bookdots {
+    position: absolute;
+    top: 0;
+  }
+  
+  .shoplook__bookdots::before {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: #ffffff;
+    border-radius: 100%;
+    transition: 0.3s ease;
+    left: 3px;
+    top: 3px;
+  }
+  
+  .shoplook__bookdots::after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #000000;
+    border-radius: 100%;
+    top: 11px;
+    left: 11px;
+    transition: 0.3s ease;
+  }
+.shoplook__grid-content{
+    margin-top: 10px;
+    height: 150px; 
+}
+.shoplook__heading p{
+    color: #000000;
+    margin-bottom: 5px;
+    margin-top: 0px;
+}
+.shoplook__description{
+    color: #000000CC;
+    font-size: 18px;
+}
+
+
+
+
+
+
+/* button animation */
+.shoplook__grid-content a{
+    color: white;
+    background-color: #000000;
+  
+  }
+  .shoplook__grid-content a {
+    position: relative;
+    overflow: hidden;
+  }
+  .shoplook__grid-content a span {
+    z-index: 3;
+  }
+  .shoplook__grid-content a::before {
+    content: "";
+    position: absolute;
+    background-color: #D03c3f;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    transition: width 0.4s ease-in-out;
+    z-index: 1;
+  }
+  .shoplook__grid-content a:hover::before {
+    width: 100%;
+  }
+  .shoplook__grid-content a:not(:hover)::before {
+    width: 0;
+    right: 0;
+  }
+

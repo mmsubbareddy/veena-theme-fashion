@@ -1,0 +1,309 @@
+{{ 'section-shop-look.css' | asset_url | stylesheet_tag }}
+
+
+{% style %}
+.padding-{{ section.id }}{
+    padding-top:{{section.settings.padding_top  | divided_by:2}}px;
+    padding-bottom:{{section.settings.padding_bottom  | divided_by:2}}px;
+
+}
+@media screen and (min-width:749px){
+    .padding-{{ section.id }}{
+    padding-top:{{section.settings.padding_top}}px;
+    padding-bottom:{{section.settings.padding_bottom}}px;
+
+}
+}
+{% for block in section.blocks %}
+    .shoplook__dot1-{{ block.id }}{
+        left:{{block.settings.above_dot_left_position}}%;
+        top:{{block.settings.above_dot_top_position}}%;
+        transition:transform 0.5s ease;
+    }
+    .shoplook__dot2-{{ block.id }}{
+        left:{{block.settings.below_dot_left_position}}%;
+        top:{{block.settings.below_dot_top_position}}%;
+        transition:transform 0.5s ease;
+    }
+    .shoplook__product-1-{{block.id}},.shoplook__product-2-{{block.id}}{
+           display:flex;
+            gap:10px;
+            position: relative;
+            width: 226px;
+            height: 86px;
+            padding: 6px;
+            border: 0.8px solid white;
+            left: 40px;
+            visibility:hidden;
+            background:white;
+            border-radius:8px;
+        }
+
+
+    .shoplook__dot1-{{ block.id }}:hover{
+        transform:scale(1.05);
+        .shoplook__product-1-{{block.id}}{
+            visibility:visible;
+        }
+
+    } 
+    .shoplook__dot2-{{ block.id }}:hover{
+        transform:scale(1.05);
+        .shoplook__product-2-{{block.id}}{
+            visibility:visible;
+        }
+
+    } 
+    .shoplook__product-1-image-{{ block.id }}{
+        border-radius:12px;
+
+    }
+    
+    
+        
+
+{% endfor %}
+
+
+{% endstyle %}
+
+
+
+
+<div class="shoplook padding-{{ section.id }}">
+    <div class="page-width">
+        <div class="grid grid--1-col grid--3-col-desktop shoplook__grid-container ">
+            {% for block in section.blocks %}
+                <div class="grid__item shoplook__grid-item">
+
+                    <div class="shoplook__grid-image">
+                        {% if block.settings.desktop_image != blank or block.settings.mobile_image != blank %}
+                            <div class="shoplook_image">
+                                {% render 'responsive-picture',
+                                    desktopImage: block.settings.desktop_image,
+                                    mobileImage: block.settings.mobile_image
+                                %}
+                            </div>  
+                            <div class="shoplook__bookdots  shoplook__dot1-{{ block.id }}">
+                                {%  if block.settings.first_product != blank %}
+                                <div class="shoplook__product-1-{{ block.id }}">
+                                    <img src="{{ block.settings.first_product | image_url }}" height="80px" width="60px" class="shoplook__product-1-image-{{ block.id }}"/>
+                                    <div class="shoplook__first-product-details">
+                                        <h3><a href="{{ block.settings.first_product.url }}">{{ block.settings.first_product.title }}</a></h3>
+                                        <p>{{ block.settings.first_product.price }}</p>
+                                        <p>{{ block.settings.first_product.compare_at_price }}</p>
+                                        
+                                    </div>
+                                </div>
+                            {% endif %}
+                            </div>
+                            <div class="shoplook__bookdots shoplook__dot2-{{ block.id }}">
+                                {% if block.settings.second_product !=blank %}
+                                <div class="shoplook__product-2-{{ block.id }}">
+                                    <img src="{{ block.settings.second_product | image_url }}" height="80px" width="60px" class="shoplook__product-1-image-{{ block.id }}"/>
+                                    <div class="shoplook__first-product-details">
+                                        <h3><a href="{{ block.settings.second_product.url }}">{{ block.settings.second_product.title }}</a></h3>
+                                        <p>{{ block.settings.second_product.price }}</p>
+                                        <p>{{ block.settings.second_product.compare_at_price }}</p>  
+                                    </div>                             
+                                </div>
+                            {% endif %}
+                            </div>
+                        {% else %}
+                        <div class="media media-portrait">
+                            {{ 'hero-apparel-1' | placeholder_svg_tag }}
+                        </div> 
+                        {% endif %}
+                    </div>
+
+                    <div class="shoplook__grid-content {{ block.settings.text_position }}">
+                        {% if block.settings.block_heading != blank %}
+                            <h2 class="h3 shoplook__heading">{{ block.settings.block_heading }}</h2>
+                        {% endif %}
+                        {% if block.settings.block_description != blank %}
+                            <div class="p shoplook__description">{{ block.settings.block_description }}</div>
+                        {% endif %}
+                        {% if  block.settings.button_text != blank %}
+                            <a
+                              {% if block.settings.button_link == blank %}
+                                role="link" aria-disabled="true"
+                              {% else %}
+                                href="{{ block.settings.button_link }}"
+                              {% endif %}
+                              class="button shoplook__button"
+                            >
+                                <span>{{ block.settings.button_text }}</span>
+                            </a>
+                          {% endif %}
+                    </div>
+
+                </div>
+             {% endfor %}   
+        </div>
+
+    </div>
+
+</div>
+
+
+
+{% schema %}
+    {
+        "name":"Shop look",
+        "tag":"section",
+        "settings":[
+            {
+                "type":"header",
+                "content":"Section Padding"
+            },
+            {
+                "type": "range",
+                "id": "padding_top",
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "unit": "px",
+                "label": "Padding top",
+                "default": 16
+              },
+              {
+                "type": "range",
+                "id": "padding_bottom",
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "unit": "px",
+                "label": "Padding bottom",
+                "default": 16
+              }
+        ],
+        "blocks":[
+            {
+                "name":"Shop content",
+                "type":"block-content",
+                "settings":[
+                    {
+                        "type": "image_picker",
+                        "id": "desktop_image",
+                        "label": "Image(Desktop)"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "mobile_image",
+                        "label": "Image(Mobile)"
+                    },
+                    {
+                        "type":"header",
+                        "content":"Top dot position"
+                    },
+                    {
+                        "type": "range",
+                        "id": "above_dot_left_position",
+                        "min": 1,
+                        "max": 100,
+                        "step": 1,
+                        "unit": "%",
+                        "label": "Left range",
+                        "default":40
+                    },
+                    {
+                        "type": "range",
+                        "id": "above_dot_top_position",
+                        "min": 1,
+                        "max": 100,
+                        "step": 1,
+                        "unit": "%",
+                        "label": "Top range",
+                        "default":40
+                    },
+                    {
+                        "type": "product",
+                        "id": "first_product",
+                        "label": "First product"
+                    },
+                    {
+                        "type":"header",
+                        "content":"Bottom dot position"
+                    },
+                    {
+                        "type": "range",
+                        "id": "below_dot_left_position",
+                        "min": 1,
+                        "max": 100,
+                        "step": 1,
+                        "unit": "%",
+                        "label": "Left range",
+                        "default":20
+                    },
+                    {
+                        "type": "range",
+                        "id": "below_dot_top_position",
+                        "min": 1,
+                        "max": 100,
+                        "step": 1,
+                        "unit": "%",
+                        "label": "Top range",
+                        "default":20
+                    },
+                    {
+                        "type": "product",
+                        "id": "second_product",
+                        "label": "Second product"
+                    },
+                    {
+                        "type": "select",
+                        "id": "text_position",
+                        "label": "Text alignment",
+                        "options": [
+                          {
+                            "value": "left",
+                            "label": "Left"
+                          },
+                          {
+                            "value": "center",
+                            "label": "Center"
+                          },
+                          {
+                            "value": "right",
+                            "label": "Right"
+                          }
+                        ],
+                        "default": "left"
+                      },
+                    {
+                        "type": "richtext",
+                        "id": "block_heading",
+                        "label": "Heading",
+                        "default":"<p>Women's Winter Clothes</p>"
+                    },
+                    {
+                        "type":"text",
+                        "id":"block_description",
+                        "label":"Description",
+                        "default":"Welcome the season in style with our Women's Winter Clothes Collection – where warmth meets sophistication."
+                    },
+                    {
+                        "type":"text",
+                        "id":"button_text",
+                        "label":"Button text",
+                        "default":"Discover More"
+                    },
+                    {
+                        "type":"url",
+                        "id":"button_link",
+                        "label":"Button link"
+                    }
+                ]
+
+            }
+
+        ],
+        "presets":[
+            {
+                "name":"Shop look"
+            }
+
+        ]
+    }
+
+{% endschema %}

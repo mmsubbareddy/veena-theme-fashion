@@ -1,0 +1,152 @@
+{{'section-custom-usp-section.css' | asset_url |  stylesheet_tag}}
+
+{% style %}
+    .padding-{{ section.id }}{
+        padding-top:{{section.settings.padding_top}}px;
+        padding-bottom:{{section.settings.padding_bottom}}px;
+    }
+    .usp-container{
+        background-color:{{ section.settings.background_color }};
+    }
+    {% for block in section.blocks %}
+        .usp-container__individual-grid-item-{{ block.id }}{
+            width: 288px;
+            text-align:{{block.settings.text_alignment}};
+            margin:10px 0px;
+            
+        }
+        .usp-container__svg-{{ block.id }} svg{
+            
+            transition: transform 0.3s ease;
+            width: 40px;
+            height: 40px;
+        }
+        .usp-container__svg-{{ block.id }}:hover svg{
+            transform: scaleX(-1);
+        }
+     {% endfor %}   
+{% endstyle %}
+
+<div class="padding-{{ section.id }}">
+    <div class="usp-container">
+        <div class="page-width">
+            <div class="grid grid--1-col grid--2-col-tablet  grid--4-col-desktop usp-container__grid-container">
+                {% for block in section.blocks %}
+                    <div class="grid__item usp-container__individual-grid-item-{{ block.id }}">
+                        {% if block.settings.usp_icon != blank %}
+                            <div class="usp-container__svg-{{ block.id }}">{{ block.settings.usp_icon }}</div>
+                        {% endif %}
+                        {% if block.settings.heading_content != blank %}
+                            <h2 class="h2 usp-container__heading">{{ block.settings.heading_content }}</h2>
+                        {% endif %}
+                        {% if block.settings.usp_description != blank %}
+                            <div class=" usp-container__description">{{ block.settings.usp_description }}</div>
+                        {% endif %}   
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+{% schema %}
+    {
+        "name":"Usp section",
+        "tag":"section",
+        "settings":[
+            {
+                "type":"header",
+                "content":"Background color"
+            },
+            {
+                "type": "color",
+                "id": "background_color",
+                "label": "Background",
+                "default": "#f5f5f5"
+              },
+            {
+                "type":"header",
+                "content":"Section Padding"
+            },
+            {
+                "type": "range",
+                "id": "padding_top",
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "unit": "px",
+                "label": "Padding top",
+                "default": 16
+              },
+              {
+                "type": "range",
+                "id": "padding_bottom",
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "unit": "px",
+                "label": "Padding bottom",
+                "default": 16
+              }
+
+
+        ],
+        "blocks":[
+            {
+                "name":"Usp block",
+                "type":"usp-block-details",
+                "settings":[
+                    {
+                        "type": "html",
+                        "id": "usp_icon",
+                        "label": "Icon"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "heading_content",
+                        "label": "Heading",
+                        "default":"<p>Daily deals</p>"
+                    },
+                    {
+                        "type": "text",
+                        "id": "usp_description",
+                        "label": "Description",
+                        "default": "that bring a touch of excitement to your everyday shopping experience."
+                    },
+                    {
+                        "type": "select",
+                        "id": "text_alignment",
+                        "label": "Text alignment",
+                        "options": [
+                          {
+                            "value": "left",
+                            "label": "Left"
+                          },
+                          {
+                            "value": "center",
+                            "label": "Center"
+                          },
+                          {
+                            "value": "right",
+                            "label": "Right"
+                          }
+                        ],
+                        "default": "center"
+                      }
+
+                ]
+            }
+        ],
+        "presets":[
+            {
+                "name":"Usp section"
+            }
+        ]
+        
+    }
+{% endschema %}

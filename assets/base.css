@@ -1262,7 +1262,7 @@ button.shopify-payment-button__button--unbranded {
   box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset))
       rgba(var(--color-button-text), var(--border-opacity)),
     0 0 0 var(--buttons-border-width) rgba(var(--color-button), var(--alpha-button-background));
-  transition: box-shadow var(--duration-short) ease;
+  transition: box-shadow var(--duration-short) ease;  
 }
 
 .button:not([disabled]):hover::after,
@@ -1273,7 +1273,8 @@ button.shopify-payment-button__button--unbranded {
   box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset))
       rgba(var(--color-button-text), var(--border-opacity)),
     0 0 0 calc(var(--buttons-border-width) + 1px) rgba(var(--color-button), var(--alpha-button-background));
-}
+   
+  }
 
 .button--secondary:after {
   --border-opacity: var(--buttons-border-opacity);
@@ -3516,4 +3517,182 @@ details-disclosure > details {
 }
 .align-end{
   align-items: end;
+}
+
+
+
+
+.custom-button-primary {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 10rem;
+  color: #000;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  font-size: 16px;
+  text-decoration: none;
+}
+ .custom-button-primary:after {
+	 content: '';
+	 position: absolute;
+	 bottom: 0;
+	 left: 0;
+	 width: 100%;
+	 height: 100%;
+	 background-color: #fff;
+	 border-radius: 10rem;
+	 z-index: -2;
+}
+ .custom-button-primary:before {
+	 content: '';
+	 position: absolute;
+	 bottom: 0;
+	 left: 0;
+	 width: 0%;
+	 height: 100%;
+	 background-color: #F5F5F5;
+	 transition: all 0.3s ease;
+	 border-radius: 10rem;
+	 z-index: -1;
+}
+ .custom-button-primary:hover {
+	 color: #d03c3f;
+}
+ .custom-button-primary:hover:before {
+	 width: 100%;
+}
+
+.custom-button-secondary {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 10rem;
+  color: #fff;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  font-size: 16px;
+  text-decoration: none;
+}
+ .custom-button-secondary:after {
+	 content: '';
+	 position: absolute;
+	 bottom: 0;
+	 left: 0;
+	 width: 100%;
+	 height: 100%;
+	 background-color: #d03c3f;
+	 border-radius: 10rem;
+	 z-index: -2;
+}
+ .custom-button-secondary:before {
+	 content: '';
+	 position: absolute;
+	 bottom: 0;
+	 left: 0;
+	 width: 0%;
+	 height: 100%;
+	 background-color: #000;
+	 transition: all 0.3s ease;
+	 border-radius: 10rem;
+	 z-index: -1;
+}
+ .custom-button-secondary:hover {
+	 color: #fff;
+}
+ .custom-button-secondary:hover:before {
+	 width: 100%;
+}
+
+.custom-button-secondary_color {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 10rem;
+  color: #fff;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  font-size: 16px;
+  text-decoration: none;
+}
+ .custom-button-secondary_color:after {
+	 content: '';
+	 position: absolute;
+	 bottom: 0;
+	 left: 0;
+	 width: 100%;
+	 height: 100%;
+	 background-color: #000;
+	 border-radius: 10rem;
+	 z-index: -2;
+}
+ .custom-button-secondary_color:before {
+	 content: '';
+	 position: absolute;
+	 bottom: 0;
+	 left: 0;
+	 width: 0%;
+	 height: 100%;
+	 background-color: #d03c3f;
+	 transition: all 0.3s ease;
+	 border-radius: 10rem;
+	 z-index: -1;
+}
+ .custom-button-secondary_color:hover {
+	 color: #fff;
+}
+ .custom-button-secondary_color:hover:before {
+	 width: 100%;
+}
+
+
+
+.custom-button-primary-transparent {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 10rem;
+  color: #fff;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  font-size: 16px;
+  border: 1px solid #fff;
+  text-decoration: none;
+}
+ .custom-button-primary-transparent:after {
+	 content: '';
+	 position: absolute;
+	 bottom: 0;
+	 left: 0;
+	 width: 100%;
+	 height: 100%;
+	 background-color: none;
+	 border-radius: 10rem;
+	 z-index: -2;
+}
+ .custom-button-primary-transparent:before {
+	 content: '';
+	 position: absolute;
+	 bottom: 0;
+	 left: 0;
+	 width: 0%;
+	 height: 100%;
+	 background-color: #F5F5F5;
+	 transition: all 0.3s ease;
+	 border-radius: 10rem;
+	 z-index: -1;
+}
+ .custom-button-primary-transparent:hover {
+	 color: #d03c3f;
+}
+ .custom-button-primary-transparent:hover:before {
+	 width: 100%;
 }

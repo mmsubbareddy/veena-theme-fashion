@@ -20,6 +20,9 @@
     padding:0px 13px 0px 30px;
     display: inline-block;
 }
+.image-banner__under-order-list li{
+  color: white;
+}
 
 h1 a{
     color:inherit;
@@ -35,7 +38,7 @@ h1 a:hover{
     outline: none ;
     border-width:0px ;
  }
- .image-banner__button:hover{
+ .image-banner__button:hover span{
     color: #D03c3f;
     outline: none ;
  }

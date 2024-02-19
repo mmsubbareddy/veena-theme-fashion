@@ -53,6 +53,47 @@
 }
 
 
+.shoplook__product-1-inner-container{
+    display:flex;
+    gap:5px;
+    height:100%;
+}
+.shoplook__first-product-details{
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+    width:70%;
+    overflow-x:auto;
+}
+
+.shoplook__product-heading{
+        border:2px solid red;
+        margin:0px;
+        padding:0px;
+        
+}
+
+.shoplook__product-heading a{
+    text-decoration:none;
+    color:black;
+    font-size:10px;
+}
+.shoplook__product-price{
+    color:black;
+    margin:0px;
+    font-size:16px;
+    font-weight:600;
+    height:20px;
+}
+.shoplook__product-compare-at-price{
+    height:15px;
+    color:#00000080;
+    font-size:12px;
+    text-decoration:line-through;
+    margin:0px;
+}
+
+
 
 
 
@@ -68,6 +109,7 @@
     overflow: hidden;
   }
   .shoplook__grid-content a span {
+    color: white;
     z-index: 3;
   }
   .shoplook__grid-content a::before {

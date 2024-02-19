@@ -1,3 +1,8 @@
+.custom-rich-text_preheading{
+  color: #000000CC;
+  font-weight: 400;
+  font-size: 16px;
+}
 .custom-rich-text__heading{
     color: #000000;
     font-size: 52px;
@@ -5,11 +10,7 @@
     margin: 10px 10px 0px;
     line-height: 67.68px;
 }
-.custom-rich-text_preheading{
-    color: #000000CC;
-    font-weight: 400;
-    font-size: 16px;
-}
+
 .custom-rich-text__heading a{
     color: #D03c3f;
     font-size: 52px;
@@ -30,6 +31,7 @@
   transition: width 0.5s ease-in-out;
   z-index: -1;
 }
+
 .custom-rich-text__heading a:hover::before {
   width: 100%;
 }
@@ -39,8 +41,8 @@
   left: auto;
 }
 
+/* button animation */
 .custom-rich-text__button-container a{
-  color: white;
   font-size: 14px;
   background-color: #D03c3f;
 
@@ -50,6 +52,7 @@
   overflow: hidden;
 }
 .custom-rich-text__button-container a span {
+  color: white;
   z-index: 3;
 }
 .custom-rich-text__button-container a::before {

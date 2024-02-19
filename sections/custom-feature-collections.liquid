@@ -1,0 +1,146 @@
+{{ 'section-custom-feature-collections.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  .padding-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+  }
+
+  @media (min-width: 750px) {
+    .padding-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{% endstyle %}
+
+
+<div class="feature-collections padding-{{ section.id }}">
+    <div class="page-width">
+        <div class="feature-collections__heading-and-button-container">
+            {% if section.settings.section_title != blank %}
+                <h2 class="h1 feature-collections__heading">{{ section.settings.section_title }}</h2>
+            {% endif %}
+            {% if  section.settings.button_text != blank %}
+                <a
+                  {% if section.settings.button_link == blank %}
+                    role="link" aria-disabled="true"
+                  {% else %}
+                    href="{{ section.settings.button_link }}"
+                  {% endif %}
+                  class="button"
+                >
+                    <span>{{ section.settings.button_text }}</span>
+                </a>
+              {% endif %}
+        </div>
+        <div class="grid grid--2-col grid--3-col-tablet grid--4-col-desktop feature-collections__collections-list">
+            {% for product in section.settings.products_list %}
+                <div class="grid__item">
+                    {% render 'eachproduct-card', product: product, section_id: section.id, alignment:section.settings.text_alignment %}
+                </div>
+            {% else %}
+                {% for i in (1..4) %}
+                    <div class="grid__item">
+                        <div class="media media--square">
+                        {{ 'product-' | append: i | placeholder_svg_tag }}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+{% schema %}
+    {
+        "name":"Feature collections",
+        "tag":"section",
+        "settings":[
+
+            {
+                "type":"text",
+                "id":"section_title",
+                "label":"Section Title",
+                "default":"Feature collections"
+            },
+            {
+                "type": "select",
+                "id": "text_alignment",
+                "label": "Text alignment",
+                "options": [
+                  {
+                    "value": "left",
+                    "label": "Left"
+                  },
+                  {
+                    "value": "center",
+                    "label": "Center"
+                  },
+                  {
+                    "value": "right",
+                    "label": "Right"
+                  }
+                ],
+                "default": "center"
+              },
+            {
+                "type":"text",
+                "id":"button_text",
+                "label":"Button Text",
+                "default":"See All Products"
+            },
+            {
+                "type":"url",
+                "id":"button_link",
+                "label":"Button label"
+            },
+            {
+                "type":"header",
+                "content":"Select products"
+            },
+            {
+                "type": "product_list",
+                "id": "products_list",
+                "label": "Products",
+                "limit": 12
+            },
+                {
+                "type":"header",
+                "content":"Section padding"
+            },
+            {
+                "type": "range",
+                "id": "padding_top",
+                "min": 1,
+                "max": 100,
+                "step": 1,
+                "unit": "px",
+                "label": "Padding Top",
+                "default": 16
+            },
+            {
+                "type": "range",
+                "id": "padding_bottom",
+                "min": 1,
+                "max": 100,
+                "step": 1,
+                "unit": "px",
+                "label": "Padding Bottom",
+                "default": 16
+            }
+            
+        ],
+        "presets":[
+            {
+                "name":"Feature collections"
+            }
+        ]
+    }
+
+{% endschema %}

@@ -35,3 +35,8 @@
 .faq-section__block-container div:last-child{
     border-bottom-width:0px;
 }
+@media screen and (max-width:749px){
+    .faq-section__description{
+        width:300px;
+    }
+}

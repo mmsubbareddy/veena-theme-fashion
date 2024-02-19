@@ -313,7 +313,7 @@
             "button_text": "grab this offer",
             "button_color": "#000000",
             "button_background_color": "",
-            "button_hover_color": "#fff",
+            "button_hover_color": "#ffffff",
             "button_hover_background_color": "#121212",
             "button_link": "shopify:\/\/collections\/bottoms"
           }
@@ -609,6 +609,46 @@
         "padding_top": 16,
         "padding_bottom": 16
       }
+    },
+    "custom_feature_collections_9zKge8": {
+      "type": "custom-feature-collections",
+      "settings": {
+        "section_title": "Feature collections",
+        "text_alignment": "center",
+        "button_text": "See All Products",
+        "button_link": "shopify:\/\/collections\/all",
+        "products_list": [
+          "august-rib-wool-oak",
+          "full-sleeve-high-neck-t-shirt",
+          "full-sleeve-high-neck-t-shirt-1",
+          "men-winter-jacket",
+          "mens-half-sleeve-t-shirt",
+          "mens-winter-hooded-jacket",
+          "women-shirt-beige-dress",
+          "women-solid-casual-jacket",
+          "womens-casual-jacket",
+          "womens-casual-sweaters"
+        ],
+        "padding_top": 16,
+        "padding_bottom": 16
+      }
+    },
+    "color_swatch_Nq8HBR": {
+      "type": "color-swatch",
+      "blocks": {
+        "color_code_6JBNLk": {
+          "type": "color_code",
+          "settings": {
+            "title": "subba",
+            "color_color": "#96ed23"
+          }
+        }
+      },
+      "block_order": [
+        "color_code_6JBNLk"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
@@ -623,6 +663,8 @@
     "custom_usp_section_3jcbib",
     "shop_look_qaXq7K",
     "custom_testimonial_X4PafE",
-    "custom_faqs_xNx7Fz"
+    "custom_faqs_xNx7Fz",
+    "custom_feature_collections_9zKge8",
+    "color_swatch_Nq8HBR"
   ]
 }

@@ -1,0 +1,184 @@
+{{   'section-custom-blog-posts.css' |  asset_url | stylesheet_tag}}
+{% comment %} <script src="{{"custom-splide-corousel.js" | asset_url}}" defer></script> {% endcomment %}
+
+{% style %}
+.section-padding-{{ section.id }}{
+    padding-top:{{section.settings.padding_top}}px;
+    padding-bottom:{{section.settings.padding_bottom  }};
+}
+
+
+@media screen and (min-width:749px){
+    .section-padding-{{ section.id }}{
+    padding-top:{{section.settings.padding_top | divided_by:2}}px;
+    padding-bottom:{{section.settings.padding_bottom | divided_by:2  }};
+}
+}
+
+{% endstyle %}
+
+<div class="blog-section section-padding-{{ section.id }}">
+    <div class="page-width">
+        <div class="blog-section__heading-and-button">
+            <h2 class="h2 blog-section__section-heading">{{ section.settings.section_heading }}</h2>
+            <a
+                {% if section.settings.section_button_link == blank %}
+                    role="link" aria-disabled="true"
+                {% else %}
+                    href="{{ section.settings.section_button_link }}"
+                {% endif %}
+                class="button blog-section__section-button"
+                >
+                <span>{{ section.settings.section_button_text }}</span>
+            </a>
+        </div>
+        <div class="grid grid--1-col  grid--2-col-desktop blog-section__articles-container">
+            {% for article in section.settings.blog.articles %}
+                <div class="grid__item blog-section__each-article-container">
+                    {% if article.image %}
+                            {% render 'responsive-picture',
+                                desktopImage: article.image,
+                                mobileImage: article.image
+                            %}
+                        {% else %}
+                        {{ 'hero-apparel-1' | placeholder_svg_tag }}
+                    {% endif %}
+                    <div class="blog-section__each-article-content-container">
+                        <div >
+                            {%  for each_tag in article.tags %}
+                                <span class="each_tag">{{ each_tag }}</span>
+                            {% endfor %}
+                            {% if article.title %}
+                            <h2 class="h2 blog-section__article-title">{{ article.title }}</h2>
+                            {% endif %}
+                            {% if article.author %}
+                            <p  class="blog-section__article-author">Publish by:{{ article.author }}</p>
+                            {% endif %}
+                            <div class="blog-section__excerpt-content">{{ article.excerpt }}</div>
+                        </div>  
+                        <div class="blog-section__button-and-published-date">
+                            <a
+                                {% if section.settings.section_button_link == blank %}
+                                    role="link" aria-disabled="true"
+                                {% else %}
+                                    href="{{ section.settings.section_button_link }}"
+                                {% endif %}
+                                class="blog-section__section-button"
+                                >
+                                <span class="readmore">Read more</span>
+                            </a>
+                            <div class="blog-section__published-date">{{ article.created_at | date:'%B %d, %Y' }}</div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+
+
+
+    </div>
+
+
+</div>
+
+
+
+
+{% schema %}
+  {
+    "name": "Custom Blogs",
+    "tag": "section",
+    "settings": [
+       {
+        "type": "blog",
+        "id": "blog",
+        "label": "Blogs"
+      },
+      {
+        "type": "text",
+        "id": "section_heading",
+        "label": "Section heading",
+        "default": "Let You Know"
+      },
+      {
+        "type": "text",
+        "id": "section_button_text",
+        "label": "Section button text",
+        "default": "Read All"
+      },
+      {
+        "type": "url",
+        "id": "section_button_link",
+        "label": "Section button link"
+      },
+      {
+        "type" : "header",
+        "content" : "Slider settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "slider_autoplay",
+        "label": "Slide autoplay",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "slide_dots",
+        "label": "Show slide dots",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "slide_arrows",
+        "label": "Show slide arrows",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "infinite_scroll",
+        "label": "Infinite scroll",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "slider_autoplay_duration",
+        "label": "Slider autoplay duration",
+        "min" : 1,
+        "step":1,
+        "max" : 10,
+        "default": 3,
+        "unit": "sec"
+      },
+      {
+          "type": "header",
+          "content": "Section padding"
+      },
+      {
+          "type": "range",
+          "id": "padding_top",
+          "label": "Padding top",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "default": 20
+      },
+      {
+          "type": "range",
+          "id": "padding_bottom",
+          "label": "Padding bottom",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "default": 20
+      }
+    ],
+    "presets": [
+       {
+         "name": "Custom Blogs"
+       }
+    ]
+  }
+{% endschema %}

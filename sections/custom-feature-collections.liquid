@@ -37,7 +37,7 @@
         <div class="grid grid--2-col grid--3-col-tablet grid--4-col-desktop feature-collections__collections-list">
             {% for product in section.settings.products_list %}
                 <div class="grid__item">
-                    {% render 'eachproduct-card', product: product, section_id: section.id, alignment:section.settings.text_alignment %}
+                  {% render 'eachproduct-card', product: product, section_id: section.id, alignment:section.settings.text_alignment %}
                 </div>
             {% else %}
                 {% for i in (1..4) %}

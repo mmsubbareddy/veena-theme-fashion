@@ -42,7 +42,7 @@ h1 a:hover{
     color: #D03c3f;
     outline: none ;
  }
- button.splide__arrow.splide__arrow--prev{
+ /* button.splide__arrow.splide__arrow--prev{
     top: unset;
     bottom: 1%;
     transform : unset;
@@ -88,7 +88,7 @@ h1 a:hover{
     width: 30px;
     border-radius: 10px;
     background-color: #fff;
-  }
+  } */
 
   @media screen and (max-width:1100px){
     button.splide__arrow.splide__arrow--prev{

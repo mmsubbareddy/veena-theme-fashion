@@ -1,4 +1,4 @@
-d{% liquid
+{% liquid
     assign current_variant = product.selected_or_first_available_variant
     assign featured_image = current_variant.image | default: product.featured_image
     assign secondary_image = product.images[1] | default: product.featured_image
@@ -52,11 +52,13 @@ d{% liquid
     </a>
     <div class="product-card__badge-and-percentage">
         <div class="product-card__tag-and-off">
-            {% if product.tags contains "New" %}
+            {% for each_tag in product.tags%}
+              {% if each_tag == "New" %}
                 <div class="product-card__tag">New</div>
-            {% endif %}
-            {%  if product.compare_at_price !=blank %}
-            <div class="product-card__off">{{ percentage }}% off</div>
+              {% endif %}
+            {% endfor %}
+            {%  if product.compare_at_price > product.price %}
+                  <div class="product-card__off">{{ percentage }}% off</div>
             {% endif %}
         </div>
         <a class="button product-card__quicklook" href="{{ product.url }}"  >
@@ -79,25 +81,27 @@ d{% liquid
     
     <div class="product-card__content {{ alignment }} ">
         <div class="product-card__variants">
-            {% for product_option in product.options_with_values %}
-                {% for option_value in product_option.values %}
-
-                    <div class="product-card__color" style="background:{{option_value}}; width:20px; height:20px; border-radius:50%;">
-                        n
-                    </div>
-                {% endfor %}
-            {% endfor %}
+          {% unless product.has_only_default_variant %}
+              {% for product_option in product.options_with_values %}
+                {% if product_option.name == "Color" %}
+                <ul class="product-card__color-variant-container item-swatch">
+                  {% for option_value in product_option.values %}
+                      <li class="product-card__variant" style="background-color:{{ option_value | handleize}};" data-value="{{ option_value | handleize}}"></li>                    
+                  {% endfor %}
+                </ul>
+              {% endif %}
+              {% endfor %}
+            {% endunless %}
         </div>
         {% if product.vendor != blank %}
             <div class="product-card__vendor">{{ product.vendor }}</div>
         {% endif %}
        <h2 class="h2 product-card__heading">{{ product.title }}</h2>
        <div class="product-card__prices">
-        <span class="product-card__price">{{ product.price | money_with_currency }}</span>
-        <span class="product-card__compare_at_price">{{ product.compare_at_price | money_with_currency}}</span>
-       </div>
-            
-        
-
+          <span class="product-card__price">{{ product.price | money_with_currency }}</span>
+          {% if product.compare_at_price %}
+            <span class="product-card__compare_at_price">{{ product.compare_at_price | money_with_currency}}</span>
+          {% endif %}
+        </div>
     </div>
 </div>  

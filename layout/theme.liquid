@@ -38,6 +38,8 @@
     {{ 'splide.min.css' | asset_url | stylesheet_tag }}
     <script src="{{"splide.min.js" | asset_url}}"></script>
 
+ 
+
 
     {{ content_for_header }}
 
@@ -298,6 +300,7 @@
     {% sections 'header-group' %}
 
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+
       {{ content_for_layout }}
     </main>
 

@@ -4,9 +4,7 @@
     align-items: center;
 
 }
-.feature-collections__heading{
-    color:black;
-}
+
 
 .product-card__image-link{
     position: relative;
@@ -73,12 +71,12 @@
     font-size: 18px;
 }
 .product-card__price{
-    color: #000000;
+   
     font-size: 18px;
     font-weight: 600;
 }
 .product-card__compare_at_price{
-    color: #00000080;
+    
     font-size: 14px;
     text-decoration: line-through   ;
 }
@@ -95,6 +93,10 @@
     height: 20px;
     width: 20px;
     border-radius: 50%;
+}
+.product-card__stock{
+    color: #dd1d1d;
+    font-weight: 600    ;
 }
 
 

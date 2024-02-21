@@ -6,6 +6,14 @@
   border: 0.1rem solid rgba(var(--color-foreground), 0.2);
   aspect-ratio: 1/1;
 }
+/* this class additionally added for colors in 2 column */
+.facets__list--vertical{
+  column-count:2;
+}
+
+/* upto here */
+
+
 
 .visual-display.empty {
   border-style: dashed;

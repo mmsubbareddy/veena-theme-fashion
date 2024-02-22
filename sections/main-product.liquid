@@ -1,3 +1,6 @@
+
+
+
 <section
   id="MainProduct-{{ section.id }}"
   class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
@@ -97,11 +100,11 @@
                 <a href="{{ product.url }}" class="product__title">
                   <h2 class="h1">
                     {{ product.title | escape }}
-                  </h2>
+                  </h2> 
                 </a>
               </div>
             {%- when 'price' -%}
-              <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+              <div  class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                 {%- render 'price',
                   product: product,
                   use_variant: true,
@@ -114,7 +117,7 @@
                   <span>{{ 'products.product.volume_pricing.note' | t }}</span>
                 </div>
               {%- endif -%}
-                <div class="product__tax caption rte">
+                <div    class="product__tax caption rte">
                   {%- if cart.taxes_included -%}
                     {{ 'products.product.include_taxes' | t }}
                   {%- endif -%}
@@ -122,7 +125,7 @@
                     {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
                   {%- endif -%}
                 </div>
-              <div {{ block.shopify_attributes }}>
+              <div  {{ block.shopify_attributes }}>
                 {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
                 {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
                   <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
@@ -130,7 +133,7 @@
                 {%- endform -%}
               </div>
             {%- when 'inventory' -%}
-              <p
+              <p 
                 class="product__inventory no-js-hidden{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
                 {{ block.shopify_attributes }}
                 id="Inventory-{{ section.id }}"
@@ -139,7 +142,7 @@
                 {%- if product.selected_or_first_available_variant.inventory_management == 'shopify' -%}
                   {%- if product.selected_or_first_available_variant.inventory_quantity > 0 -%}
                     {%- if product.selected_or_first_available_variant.inventory_quantity <= block.settings.inventory_threshold -%}
-                      <svg width="15" height="15" aria-hidden="true">
+                      <svg   width="15" height="15" aria-hidden="true">
                         <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(238,148,65, 0.3)"/>
                         <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(238,148,65)"/>
                       </svg>
@@ -171,19 +174,24 @@
                         <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(200,200,200, 0.3)"/>
                         <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(200,200,200)"/>
                       </svg>
-                      {{- 'products.product.inventory_out_of_stock' | t -}}
+                      {{- 'products.product.inventory_out_of_stock' | t -}} 
                     {%- endif -%}
                   {%- endif -%}
                 {%- endif -%}
               </p>
             {%- when 'description' -%}
-              {%- if product.description != blank -%}
+              {% comment %} {%- if product.description != blank -%} 
                 <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
                   {{ product.description }}
                 </div>
+              {%- endif -%} {% endcomment %}
+              {%- if product.description != blank -%}
+              <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
+                  {{ product.selected_or_first_available_variant.metafields.custom.variantdescription1 }}
+               </div>
               {%- endif -%}
             {%- when 'sku' -%}
-              <p
+              <p 
                 class="product__sku no-js-hidden{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
                 id="Sku-{{ section.id }}"
                 role="status"
@@ -194,7 +202,7 @@
             {%- when 'custom_liquid' -%}
               {{ block.settings.custom_liquid }}
             {%- when 'collapsible_tab' -%}
-              <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
+              <div  class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
                 <details id="Details-{{ block.id }}-{{ section.id }}">
                   <summary>
                     <div class="summary__title">
@@ -205,14 +213,14 @@
                     </div>
                     {% render 'icon-caret' %}
                   </summary>
-                  <div class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
+                  <div   class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
                     {{ block.settings.content }}
                     {{ block.settings.page.content }}
                   </div>
                 </details>
               </div>
             {%- when 'quantity_selector' -%}
-              <div
+              <div 
                 id="Quantity-Form-{{ section.id }}"
                 class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
                 {{ block.shopify_attributes }}
@@ -221,7 +229,7 @@
                 {% # theme-check-disable %}
                 {%- assign cart_qty = cart | item_count_for_variant: product.selected_or_first_available_variant.id -%}
                 {% # theme-check-enable %}
-                <label class="quantity__label form__label" for="Quantity-{{ section.id }}">
+                <label  class="quantity__label form__label" for="Quantity-{{ section.id }}">
                   {{ 'products.product.quantity.label' | t }}
                   <span class="quantity__rules-cart no-js-hidden{% if cart_qty == 0 %} hidden{% endif %}">
                     {%- render 'loading-spinner' -%}
@@ -230,7 +238,7 @@
                 </label>
                 <div class="price-per-item__container">
                   <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
-                    <button class="quantity__button no-js-hidden" name="minus" type="button">
+                    <button     class="quantity__button no-js-hidden" name="minus" type="button">
                       <span class="visually-hidden">
                         {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
                       </span>
@@ -252,7 +260,7 @@
                       value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
                       form="{{ product_form_id }}"
                     />
-                    <button class="quantity__button no-js-hidden" name="plus" type="button">
+                    <button  class="quantity__button no-js-hidden" name="plus" type="button">
                       <span class="visually-hidden">
                         {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
                       </span>
@@ -300,7 +308,7 @@
                       {%- else -%}
                         {%- assign variant_price = product.selected_or_first_available_variant.price | money_with_currency -%}
                         {%- assign variant_price_compare = product.selected_or_first_available_variant.compare_at_price -%}
-                        <div class="price-per-item">
+                        <div  class="price-per-item">
                           {%- if variant_price_compare -%}
                             <dl class="price-per-item--current">
                               <dt class="visually-hidden">
@@ -318,6 +326,7 @@
                                 <span class="price-per-item--current">{{ 'products.product.volume_pricing.price_at_each' | t: price: variant_price }}</span>
                               </dd>
                             </dl>
+                           
                           {%- else -%}
                             <span class="price-per-item--current">{{ 'products.product.volume_pricing.price_at_each' | t: price: variant_price }}</span>
                           {%- endif -%}
@@ -326,7 +335,7 @@
                     </price-per-item>
                   {%- endif -%}
                 </div>
-                <div class="quantity__rules caption no-js-hidden" id="Quantity-Rules-{{ section.id }}">
+                <div  class="quantity__rules caption no-js-hidden" id="Quantity-Rules-{{ section.id }}">
                   {%- if product.selected_or_first_available_variant.quantity_rule.increment > 1 -%}
                     <span class="divider">
                       {{-
@@ -372,7 +381,7 @@
                       </ul>
                       {%- if product.selected_or_first_available_variant.quantity_price_breaks.size >= 3 -%}
                         <show-more-button>
-                          <button
+                          <button 
                             class="button-show-more link underlined-link"
                             id="Show-More-{{ section.id }}"
                             type="button"
@@ -387,6 +396,7 @@
                   </volume-pricing>
                 {%- endif -%}
               </div>
+             
             {%- when 'popup' -%}
               <modal-opener
                 class="product-popup-modal__opener no-js-hidden quick-add-hidden"
@@ -416,7 +426,22 @@
               {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
             {%- when 'buy_buttons' -%}
               {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true -%}
-            {%- when 'rating' -%}
+              
+              {%- unless shop.enabled_payment_types == empty -%}
+                <div class="payment-container">
+                    <span class="visuallyhidden">Secure checkout with</span>
+                    <ul class="icons-container">
+                      {%- for type in shop.enabled_payment_types -%}
+                        <li class="icons-containe__list">
+                          {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+              </div>
+              {%- endunless -%}
+
+
+              {%- when 'rating' -%}
               {%- if product.metafields.reviews.rating.value != blank -%}
                 {% liquid
                   assign rating_decimal = 0
@@ -452,6 +477,8 @@
                   </span>
                 </p>
               {%- endif -%}
+              
+
             {%- when 'complementary' -%}
               <product-recommendations class="complementary-products quick-add-hidden no-js-hidden{% if block.settings.make_collapsible_row %} is-accordion{% endif %}{% if block.settings.enable_quick_add %} complementary-products-contains-quick-add{% endif %}" data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ block.settings.product_list_limit }}&intent=complementary">
                 {%- if recommendations.performed and recommendations.products_count > 0 -%}
@@ -461,7 +488,7 @@
                         <details id="Details-{{ block.id }}-{{ section.id }}" open>
                           <summary>
                       {%- endif %}
-                      <div class="summary__title">
+                      <div  class="summary__title">
                         {%- if block.settings.make_collapsible_row -%}
                           {% render 'icon-accordion', icon: block.settings.icon %}
                           <h2 class="h4 accordion__title">{{ block.settings.block_heading }}</h2>
@@ -626,7 +653,7 @@
     endif
   -%}
 
-  <script type="application/ld+json">
+  <script type="  ion/ld+json">
     {
       "@context": "http://schema.org/",
       "@type": "Product",
@@ -637,7 +664,7 @@
           {{ seo_media | image_url: width: 1920 | prepend: "https:" | json }}
         ],
       {%- endif %}
-      "description": {{ product.description | strip_html | json }},
+       "description": {{ product.description | strip_html | json }}
       {% if product.selected_or_first_available_variant.sku != blank -%}
         "sku": {{ product.selected_or_first_available_variant.sku | json }},
       {%- endif %}
@@ -2004,6 +2031,7 @@
             },
             {
               "value": "washing",
+
               "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__44.label"
             }
           ],

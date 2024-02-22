@@ -1,6 +1,7 @@
 {{ 'template-collection.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'section-custom-feature-collections.css' | asset_url | stylesheet_tag }}
 
 {% if section.settings.image_shape == 'blob' %}
   {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
@@ -18,14 +19,8 @@
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
 
-  .subbu{
-    border:1px solid blue;
-    width:80%; 
-    margin-left:auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-  }
+  
+ 
 
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
@@ -122,28 +117,40 @@
           id="main-collection-filters"
           data-id="{{ section.id }}"
         >
-          <div>
-            <ul>
-              {% for link in section.settings.menu.links %}
-                <li>
-                  {{ link.title }}
-                  <ul>
-                  {% for sub_link in link.links %}
-                  <li>
-                    {{ sub_link.title }}
-                    <ul>
-                      {% for sub_sub_link in sub_link.links %}
-                      <li>  {{ sub_sub_link.title }}</li>
-                      {% endfor %}
-                    </ul>
-                  </li>
-                  {% endfor %}
-                  
-                  </ul>
-                
-                </li>
-              {% endfor %}
-            </ul>
+          <div class="nav-menu">
+            {% for link in section.settings.menu.links %}
+              <details class="menu-border">
+                <summary >{{ link.title |  link_to: link.url }}  {% if link.links.size > 0 %}
+                  <svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></path>
+                  </svg>
+                  {% endif %}
+                </summary>
+          
+                {% for sub_link in link.links %}
+                  <details >
+                    <summary>{{ sub_link.title | link_to: sub_link.url}}
+                    {% if sub_link.links.size > 0 %}
+                      <svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></path>
+                      </svg>
+                      {% endif %}
+                  </summary>
+                    {% for sub_sub_link in sub_link.links %}
+                      <details>
+                        <summary>{{ sub_sub_link.title |  link_to: sub_sub_link.url }}
+                        {% if sub_sub_link.links.size > 0 %}
+                          <svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></path>
+                          </svg>
+                          {% endif %}
+                      </summary>
+                      </details>
+                    {% endfor %}
+                  </details>
+                {% endfor %}
+              </details>
+            {% endfor %}
           </div>
 
           {% render 'facets',
@@ -200,7 +207,7 @@
                     style="--animation-order: {{ forloop.index }};"
                   {% endif %}
                 >
-                  {% render 'card-product',
+                  {% comment %} {% render 'card-product',
                     card_product: product,
                     media_aspect_ratio: section.settings.image_ratio,
                     image_shape: section.settings.image_shape,
@@ -210,7 +217,8 @@
                     lazy_load: lazy_load,
                     show_quick_add: section.settings.enable_quick_add,
                     section_id: section.id
-                  %}
+                  %} {% endcomment %}
+                  {% render 'eachproduct-card', product: product, section_id: section.id, alignment:section.settings.text_alignment %}
                 </li>
               {%- endfor -%}
             </ul>

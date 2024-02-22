@@ -1,4 +1,4 @@
-{% liquid
+  {% liquid
     assign current_variant = product.selected_or_first_available_variant
     assign featured_image = current_variant.image | default: product.featured_image
     assign secondary_image = product.images[1] | default: product.featured_image
@@ -7,7 +7,10 @@
   %}
   
   
-  <div class="product-card__image-link">
+  <product-card
+    data-product-handle="{{ product.handle }}"
+    data-section-id="{{ section_id }}"
+    class="product-card__image-link">
     <a href="{{ product.url }}" >
       <div class="media media--portrait media--transparent media--hover-effect product-card__image ">
         <img
@@ -84,11 +87,25 @@
           {% unless product.has_only_default_variant %}
               {% for product_option in product.options_with_values %}
                 {% if product_option.name == "Color" %}
+                <form>
                 <ul class="product-card__color-variant-container item-swatch">
                   {% for option_value in product_option.values %}
-                      <li class="product-card__variant" style="background-color:{{ option_value | handleize}};" data-value="{{ option_value | handleize}}"></li>                    
+                      <li class="product-card__variant" >
+                        <label>
+                            <input 
+                              
+                              data-value="{{ option_value | handleize}}"
+                              type="radio" 
+                              name="option-{{ product_option.name | handleize }}" 
+                              value="{{ option_value }}"
+                              {% if product_option.selected_value == option_value %}checked{% endif %}
+                            >
+                            <div class="product-card__each-variant" style="background-color:{{ option_value | handleize}};" data-value="{{   option_value }}"> </div>
+                      </label>
+                      </li>                    
                   {% endfor %}
                 </ul>
+              </form>
               {% endif %}
               {% endfor %}
             {% endunless %}
@@ -104,11 +121,21 @@
           {% endif %}
         </div>
         {% if current_variant.inventory_quantity > 0 and  current_variant.inventory_quantity <=10 %}
-          <p class="product-card__stock">Only {{ current_variant.inventory_quantity}} units left</p>
+          <p class="product-card__low-stock">Only {{ current_variant.inventory_quantity}} units left</p>
+          {% elsif current_variant.inventory_quantity > 10 %}
+          <p class="product-card__stock"> {{ current_variant.inventory_quantity}} in stock</p>
+          {% else %}
+          <p class="product-card__low-stock">Soldout</p>
         {% endif %}
-       
         <div class='jdgm-widget jdgm-preview-badge'>
           {{ product.metafields.judgeme.badge }}
         </div>  
     </div>
-</div>  
+
+    <script>
+      {{ product.variants | json }}
+    </script>
+
+</product-card>    
+
+

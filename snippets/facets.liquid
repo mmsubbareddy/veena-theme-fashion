@@ -200,7 +200,7 @@
                               assign is_disabled = false
                               if value.count == 0 and value.active == false
                                 assign is_disabled = true
-                                assign color_name=filter.label | handleize
+                                
                               endif
                             %}
 
@@ -213,7 +213,6 @@
                                   type="checkbox"
                                   name="{{ value.param_name }}"
                                   value="{{ value.value }}"
-                                  data-value={{ value.label | handleize }}
                                   id="Filter-{{ filter.param_name | escape }}-{{ forloop.index }}"
                                   {% if value.active %}
                                     checked
@@ -235,9 +234,10 @@
                                 {% else %}
                                  
                                     <svg
-                                     {% if  color_name == "color" %} 
-                                     style="display:none;"
-                                    {% endif %}
+                                      {%  if filter.label == "Color" %}
+                                      style="border-radius:50%; border-width:0px;"
+                                      {% endif %}
+                                      data-value={{ value.label | handleize }}
                                       width="1.6rem"
                                       height="1.6rem"
                                       viewBox="0 0 16 16"
@@ -247,10 +247,8 @@
                                       <rect width="16" height="16" stroke="currentColor" fill="none" stroke-width="1"></rect>
                                     </svg>
 
-                                    <svg
-                                      {% if  color_name == "color" %} 
-                                      style="display:none;"
-                                     {% endif %}
+                                    {% comment %} <svg
+                                     
                                       aria-hidden="true"
                                       class="icon icon-checkmark"
                                       width="1.1rem"
@@ -265,10 +263,10 @@
                                         stroke-width="1.75"
                                         stroke-linecap="round"
                                         stroke-linejoin="round" />
-                                    </svg>
+                                    </svg> {% endcomment %}
                                  
                                 {% endif %}
-                                <span style='background-color: {{  value.label | handleize }}; width: 20px; height: 20px;margin-right:10px; border-radius: 50%;' data-value="{{  value.label | handleize }}"></span>
+                                {% comment %} <span style='background-color: {{  value.label | handleize }}; width: 20px; height: 20px;margin-right:10px; border-radius: 50%;' data-value="{{  value.label | handleize }}"></span> {% endcomment %}
                                 <span  class="facet-checkbox__text" aria-hidden="true">
                                   {{- value.label | escape }} ({{ value.count }})</span
                                 >

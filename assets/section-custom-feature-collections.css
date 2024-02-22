@@ -94,9 +94,23 @@
     width: 20px;
     border-radius: 50%;
 }
-.product-card__stock{
+.product-card__low-stock{
     color: #dd1d1d;
     font-weight: 600    ;
+}
+.product-card__stock{
+    color: green;
+    font-weight: 600 
+}
+.product-card__each-variant{
+    width:20px;
+    height: 20px;
+    border-radius:50%;
+    
+}
+.product-card__each-variant:hover{
+    box-shadow: 0 0 0 3px white inset;
+    border:1px solid blue;
 }
 
 

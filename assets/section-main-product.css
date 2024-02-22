@@ -1496,3 +1496,28 @@ a.product__text {
     border: none;
   }
 }
+
+
+/* payment container css start */
+.icon {
+  width: 3.125em;
+  
+}
+.visuallyhidden{
+  font-weight:600;
+}
+.payment-container{
+  display:flex;
+  border:2px solid #F5F5F5;
+  border-radius:10px;
+  padding:0px  6px;
+  justify-content:space-between;
+}
+.icons-containe__list{
+  list-style-type:none;
+}
+.icons-container{
+  display:flex;
+}
+
+/* payment container css end */

@@ -84,6 +84,7 @@
     %}
   {%- elsif picker_type == 'button' -%}
     <input 
+      class="variant-selected"
       type="radio"
       id="{{ input_id }}"
       name="{{ option.name }}"
@@ -100,16 +101,16 @@
     {% assign optionName = option.name | handleize %}
     <label for="{{ input_id }}" 
       {% if  optionName  == "color" %} 
-      class="product-variant-options__color-swatch" 
+      class="product-variant-options__color-swatch {% if option_disabled %}disabled-variant{% endif %}" 
       style = "background-color: {{ value }}" 
     {%  endif %}  
-  >
-      {% if  optionName  != "color" %}
+    >  
+    {% if  optionName  != "color" %}
         {{ value -}} 
         {{ label_unavailable }}
     {%  endif %}
     </label>
-    
+
   {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}
     <option  
       value="{{ value | escape }}"

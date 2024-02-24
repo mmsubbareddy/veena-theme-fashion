@@ -1511,8 +1511,10 @@ a.product__text {
   border:2px solid #F5F5F5;
   border-radius:10px;
   padding:0px  6px;
+  align-items: center;
   justify-content:space-between;
 }
+
 .icons-containe__list{
   list-style-type:none;
 }

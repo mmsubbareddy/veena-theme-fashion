@@ -272,79 +272,93 @@ h5,
 .h0,
 .h1,
 .h2,
-.h3,
+h1 .h3,
 .h4,
 .h5 {
-    font-family: var(--font-heading-family);
-    font-style: var(--font-heading-style);
-    font-weight: 600;
-    /* letter-spacing: calc(var(--font-heading-scale) * 0.06rem); */
-    color: rgb(var(--color-foreground));
-    line-height: calc(1 + 0.3 / max(1, var(--font-heading-scale)));
-    word-break: break-word;
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  letter-spacing: calc(var(--font-heading-scale) * 0.03rem);
+  color: rgb(var(--color-foreground));
+  line-height: calc(1 + 0.3 / max(1, var(--font-heading-scale)));
+  word-break: break-word;
 }
-h1, h2, h3, h4, h5, h6 {
-    margin-top: 0;
-    margin-bottom: 0.5rem;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 .hxl {
-  font-size: calc(var(--font-heading-scale) * 5rem);
-}
-
-@media only screen and (min-width: 768px) {
-  .hxl {
-    font-size: calc(var(--font-heading-scale) * 6.2rem);
-  }
-}
-
-.h0 {
-  font-size: calc(var(--font-heading-scale) * 4rem);
-}
-@media only screen and (min-width: 768px) {
-  .h0 {
-    font-size: calc(var(--font-heading-scale) * 5.2rem);
-  }
-}
-h1,.h1 {
   font-size: calc(var(--font-heading-scale) * 3rem);
 }
 @media only screen and (min-width: 768px) {
-  h1,.h1 {
+  .hxl {
+    font-size: calc(var(--font-heading-scale) * 5.2rem);
+  }
+}
+.h0 {
+  font-size: calc(var(--font-heading-scale) * 2.4rem);
+}
+@media only screen and (min-width: 768px) {
+  .h0 {
+    font-size: calc(var(--font-heading-scale) * 3.4rem);
+  }
+}
+h1,
+.h1 {
+  font-size: calc(var(--font-heading-scale) * 2.6rem);
+}
+@media only screen and (min-width: 768px) {
+  h1,
+  .h1 {
     font-size: calc(var(--font-heading-scale) * 4rem);
   }
 }
-h2,.h2 {
-  font-size: calc(var(--font-heading-scale) * 2rem);
+h2,
+.h2 {
+  font-size: calc(var(--font-heading-scale) * 1.8rem);
 }
 @media only screen and (min-width: 768px) {
-  h2,.h2 {
-    font-size: calc(var(--font-heading-scale) * 2.4rem);
+  h2,
+  .h2 {
+    font-size: calc(var(--font-heading-scale) * 2.2rem);
   }
 }
-h3,.h3 {
-  font-size: calc(var(--font-heading-scale) * 1.7rem);
+h3,
+.h3 {
+  font-size: calc(var(--font-heading-scale) * 1.8rem);
 }
 @media only screen and (min-width: 768px) {
-  h3, .h3 {
-    font-size: calc(var(--font-heading-scale) * 1.8rem);
+  h3,
+  .h3 {
+    font-size: calc(var(--font-heading-scale) * 2rem);
   }
 }
-h4, .h4 {
+h4,
+.h4 {
   font-family: var(--font-heading-family);
   font-style: var(--font-heading-style);
   font-size: calc(var(--font-heading-scale) * 1.5rem);
 }
-h5, .h5 {
-  font-size: calc(var(--font-heading-scale) * 1.2rem);
+h5,
+.h5 {
+  font-size: calc(var(--font-heading-scale) * 1.4rem);
 }
 @media only screen and (min-width: 768px) {
-  h5, .h5 {
-    font-size: calc(var(--font-heading-scale) * 1.3rem);
+  h5,
+  .h5 {
+    font-size: calc(var(--font-heading-scale) * 1.8rem);
   }
 }
-h6, .h6 {
+h6,
+.h6 {
   color: rgba(var(--color-foreground), 0.75);
 }
+
 blockquote {
   font-style: italic;
   color: rgba(var(--color-foreground), 0.75);
@@ -1983,7 +1997,7 @@ input[type='checkbox'] {
 }
 
 .quantity__input[type='number'] {
-  -moz-appearance: textfield;
+  --moz-appearance: textfield;
 }
 
 .quantity__rules {
@@ -3519,9 +3533,6 @@ details-disclosure > details {
   align-items: end;
 }
 
-
-
-
 .custom-button-primary {
   display: inline-block;
   padding: 8px 20px;
@@ -3558,7 +3569,7 @@ details-disclosure > details {
 	 border-radius: 10rem;
 	 z-index: -1;
 }
- .custom-button-primary:hover {
+ .custom-button-primary:hover span {
 	 color: #d03c3f;
 }
  .custom-button-primary:hover:before {

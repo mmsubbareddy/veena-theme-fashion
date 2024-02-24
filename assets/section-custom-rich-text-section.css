@@ -1,19 +1,20 @@
+.custom-rich-text__text-content{
+  max-width:586px;
+}
+.custom-rich-text{
+  display:flex;
+  align-items:center;
+}
 .custom-rich-text_preheading{
   color: #000000CC;
   font-weight: 400;
-  font-size: 16px;
+  margin-bottom: 0px;
 }
-.custom-rich-text__heading{
-    color: #000000;
-    font-size: 52px;
-    letter-spacing: 0.3px;
-    margin: 10px 10px 0px;
-    line-height: 67.68px;
+.custom-rich-text__heading p{
+  margin: 10px 0px 0px;
 }
-
 .custom-rich-text__heading a{
     color: #D03c3f;
-    font-size: 52px;
     text-decoration: none;
 }
 
@@ -42,6 +43,9 @@
 }
 
 /* button animation */
+.custom-rich-text__button-container{
+  margin:30px 0px 0px;
+}
 .custom-rich-text__button-container a{
   font-size: 14px;
   background-color: #D03c3f;

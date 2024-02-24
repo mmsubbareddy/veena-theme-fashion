@@ -75,20 +75,20 @@
               assign quantity_rule_soldout = true
             endif
           -%}
-          <button 
+          <button  
             id="ProductSubmitButton-{{ section_id }}"
             type="submit"
             name="add"
-            class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+            class="custom-button-secondary product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
             {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
               disabled
             {% endif %}
           >
-            <span>
+            <span >
               {%- if product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
                 {{ 'products.product.sold_out' | t }}
               {%- else -%}
-                {{ 'products.product.add_to_cart'  | t }} {{ product.selected_or_first_available_variant.price | money_with_currency }}
+                {{ 'products.product.add_to_cart'  | t }} {{ product.selected_or_first_available_variant.price | money_with_currency }} 
               {%- endif -%}
             </span>
             {%- render 'loading-spinner' -%}
@@ -102,10 +102,10 @@
   {%- else -%}
     <div class="product-form">
       <div class="product-form__buttons form">
-        <button
+        <button 
           type="submit"
           name="add"
-          class="product-form__submit button button--full-width button--primary"
+          class="custom-button-secondary product-form__submit button button--full-width button--primary"
           disabled
         >
           {{ 'products.product.sold_out' | t }}

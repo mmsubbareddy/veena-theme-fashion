@@ -29,13 +29,6 @@
 .grid-container__collection-1:hover img{
     transform: scale(1.06);
 }
-
-.grid-container__button{
-    color: #000000;
-    background: #fff;
-    border-width: 0px;
-
-}
 .grid-container__under-order-list{
     border-radius:20px;
     border:0.8px solid white;

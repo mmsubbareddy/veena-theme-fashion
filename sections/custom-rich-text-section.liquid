@@ -5,16 +5,6 @@
         padding-top:{{section.settings.padding_top | divided_by:2}}px;
         padding-bottom:{{section.settings.padding_bottom | divided_by:2}}px;
     }
-    .custom-rich-text-{{section.id}}{
-        display:flex;
-        align-items:center;
-        justify-content:{{section.settings.content_alignment}};
-    }
-    .custom-rich-text__text-content-{{ section.id }}{
-        text-align:{{section.settings.text_alignment}};
-        max-width:586px;
-        line-height: 28.8px;
-    }
     @media screen and (min-width:749px){
       .padding-{{ section.id }}{
         padding-top:{{section.settings.padding_top }}px;
@@ -28,13 +18,13 @@
 
 <div class="padding-{{ section.id }}">
   <div class="page-width">
-    <div class="custom-rich-text-{{ section.id }}">
-      <div class="custom-rich-text__text-content-{{ section.id }}">
+    <div class="custom-rich-text {{section.settings.content_alignment}}">
+      <div class="custom-rich-text__text-content {{section.settings.text_alignment}}">
         {% for block in section.blocks %}
           {% if block.type == 'pre-heading-content' and block.settings.pre_heading_content != blank %}
-                    <h2 class="custom-rich-text_preheading">{{ block.settings.pre_heading_content }}</h2>
+            <p class="custom-rich-text_preheading">{{ block.settings.pre_heading_content }}</p>
           {% elsif block.type == 'heading-content' and block.settings.heading_content != blank %}
-            <h2 class="h2 custom-rich-text__heading">
+            <h2 class="hxl custom-rich-text__heading">
               {{ block.settings.heading_content }}
             </h2>
           {% elsif block.type == 'button-content' and block.settings.button_content != blank %}
@@ -88,19 +78,19 @@
       "label": "Content position",
       "options": [
         {
-          "value": "left",
+          "value": "justify-start",
           "label": "Left"
         },
         {
-          "value": "center",
+          "value": "justify-center",
           "label": "Center"
         },
         {
-          "value": "right",
+          "value": "justify-end",
           "label": "Right"
         }
       ],
-      "default": "center"
+      "default": "justify-center"
     },
     
     {

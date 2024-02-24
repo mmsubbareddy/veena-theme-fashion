@@ -190,6 +190,21 @@ class QuantityInput extends HTMLElement {
 
   validateQtyRules() {
     const value = parseInt(this.input.value);
+    const price= document.getElementById(`price-${this.dataset.section}`)
+    const priceWithCurrency= price.querySelector('.price-item').textContent.split(' ');
+    //console.log(price.querySelector('.price-item').textContent.split(' '))
+    // Find the element that contains the value
+    const valueElement = priceWithCurrency.filter(element => /[0-9,]+/.test(element));
+    // Extract the first element from the filtered array
+    const currentPrice = valueElement[0].trim();
+    console.log(currentPrice);
+    const productForm = document.getElementById(`product-form-${this.dataset.section}`);
+    if (!productForm) return;
+    const addButton = productForm.querySelector('[name="add"]');
+    const addButtonText = productForm.querySelector('[name="add"] > span');
+    addButtonText.textContent = window.variantStrings.addToCart + "- ₹" + parseFloat(Number(currentPrice.replace(',','')) * value) +".00"
+
+
     if (this.input.min) {
       const min = parseInt(this.input.min);
       const buttonMinus = this.querySelector(".quantity__button[name='minus']");
@@ -953,6 +968,7 @@ class VariantSelects extends HTMLElement {
   }
 
   onVariantChange(event) {
+
     this.updateOptions();
     this.updateMasterId();
     this.updateSelectedSwatchValue(event);
@@ -1118,6 +1134,9 @@ class VariantSelects extends HTMLElement {
 
         const html = new DOMParser().parseFromString(responseText, 'text/html');
         const destination = document.getElementById(`price-${this.dataset.section}`);
+        document.querySelector("#variantText").innerHTML =
+        html.querySelector("#variantText").innerHTML; /*here i am adding variant description for each variant */
+
         const source = html.getElementById(
           `price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
         );
@@ -1190,6 +1209,10 @@ class VariantSelects extends HTMLElement {
     if (!productForm) return;
     const addButton = productForm.querySelector('[name="add"]');
     const addButtonText = productForm.querySelector('[name="add"] > span');
+
+    const price = document.getElementById(`price-${this.dataset.section}`);
+    const currentPrice = price.querySelector(".price-item").textContent;  
+
     if (!addButton) return;
 
     if (disable) {
@@ -1197,7 +1220,8 @@ class VariantSelects extends HTMLElement {
       if (text) addButtonText.textContent = text;
     } else {
       addButton.removeAttribute('disabled');
-      addButtonText.textContent = window.variantStrings.addToCart;
+      addButtonText.textContent = window.variantStrings.addToCart+ " " + currentPrice; /* here also we  are add  + " " + currentPrice */
+      
     }
 
     if (!modifyClass) return;

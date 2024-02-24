@@ -39,50 +39,49 @@
 <div class="padding-{{ section.id }}">
     <div class="page-width">
         <div class="grid-container grid grid--1-col grid--2-col-desktop">
-            {% for block in section.blocks %}
-                <div class="grid__item grid-container__collection-1 {{ section.settings.selected_mode }}">
-                    {% if block.settings.desktop_image != blank or block.settings.mobile_image !=blank %}
-                        {% render 'responsive-picture',
-                            desktopImage: block.settings.desktop_image,
-                            mobileImage: block.settings.mobile_image
-                        %}
-                        {% else %}
-                        {{ 'collection-1' | placeholder_svg_tag }}
-                    {% endif %}
-                    <div class="grid-container__collection-1__content-{{ block.id }}">
-                        <div class="grid-conatiner__inner-container-{{ block.id }}">
-                        {%  if block.settings.collection_category != blank %}
-                            <ul class="grid-container__under-order-list">
-                              <li>{{ block.settings.collection_category }}</li>
-                            </ul>
-                          {% endif %}
-                          {% if block.settings.heading_content != blank  %}
-                            <h2 class="h2">{{ block.settings.heading_content }}</h2>
-                          {% endif %}
+        {% for block in section.blocks %}
+            <div class="grid__item grid-container__collection-1 {{ section.settings.selected_mode }}">
+                {% if block.settings.desktop_image != blank or block.settings.mobile_image !=blank %}
+                    {% render 'responsive-picture',
+                        desktopImage: block.settings.desktop_image,
+                        mobileImage: block.settings.mobile_image
+                    %}
+                    {% else %}
+                    {{ 'collection-1' | placeholder_svg_tag }}
+                {% endif %}
+                <div class="grid-container__collection-1__content-{{ block.id }}">
+                    <div class="grid-conatiner__inner-container-{{ block.id }}">
+                    {%  if block.settings.collection_category != blank %}
+                        <ul class="grid-container__under-order-list">
+                          <li>{{ block.settings.collection_category }}</li>
+                        </ul>
+                      {% endif %}
+                      {% if block.settings.heading_content != blank  %}
+                        <h2 class="h2">{{ block.settings.heading_content }}</h2>
+                      {% endif %}
 
-                          {% if  block.settings.button_content != blank %}
-                            <a
-                              {% if block.settings.button_link == blank %}
-                                role="link" aria-disabled="true"
-                              {% else %}
-                                href="{{ block.settings.button_link }}"
-                              {% endif %}
-                              class="button grid-container__button"
-                            >
-                                <span>{{ block.settings.button_content }}</span>
-                            </a>
+                      {% if  block.settings.button_content != blank %}
+                        <a 
+                          {% if block.settings.button_link == blank %}
+                            role="link" aria-disabled="true"
+                          {% else %}
+                            href="{{ block.settings.button_link }}"
                           {% endif %}
-                          </div>
-                    </div>
-
-
+                          class="button grid-container__button custom-button-primary"
+                        >
+                            <span>{{ block.settings.button_content }}</span>
+                        </a>
+                      {% endif %}
+                      </div>
                 </div>
-    
-            {% endfor %}
 
-            
+
+            </div>
+
+        {% endfor %}
+      </div>
     </div>
-
+    
 </div>
 
 

@@ -162,7 +162,15 @@ variant-selects {
   border-radius: 100%;
   width: 40px;
   height: 40px;
-  box-shadow: 0 0 0 3px rgb(var(--color-background)) inset;
-  border: 1px solid red;
+  
+  
 }
-/* custom colot swatches css end */
+.variant-selected:checked + label{
+  box-shadow: 0 0 0 3px rgb(var(--color-background)) inset;
+}
+
+/* custom color swatches css end */
+
+.disabled-variant {
+  box-shadow: 0 0 0 8px rgb(var(--color-background)) inset;
+}

@@ -10,7 +10,20 @@
     top:0px;
     left:0px;
 }
-
+.image-banner__splider-content{
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0px;
+  left:0px;
+  display:flex;
+  flex-direction:column;
+}
+.image-banner__slider-content-container{
+  max-width:545px;
+  padding:20px 35px;
+  margin: 20px;
+}
 .image-banner__under-order-list{
     backdrop-filter: blur(10px);
     border-radius:20px;
@@ -20,95 +33,121 @@
     padding:0px 13px 0px 30px;
     display: inline-block;
 }
-.image-banner__under-order-list li{
+.image-banner__under-order-list li,h1{
   color: white;
 }
 
-h1 a{
-    color:inherit;
+.image-banner__slider-content-container h1 a{
+  color:inherit;
+  text-decoration: none;
+}
+
+.image-banner__slider-content-container h1 a {
+  position: relative;
+}
+.image-banner__slider-content-container h1 a::before {
+  content: "";
+  position: absolute;
+  background-color: #D03C3F;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  transition: width 0.5s ease-in-out;
+  z-index: -1;
+}
+
+.image-banner__slider-content-container h1 a:hover::before {
+  width: 100%;
+}
+.image-banner__slider-content-container h1 a:not(:hover)::before {
+  width: 0;
+  right: 0;
+  left: auto;
+}
+
+/* .image-banner__slider-content-container h1 a{
+    color:inherit;  
     text-decoration: none;
 }
-h1 a:hover{
+.image-banner__slider-content-container h1 a:hover{
     color: #D03c3f;
     text-decoration: underline;
-} 
- .image-banner__button{
-    background: white;
-    color: black;
-    outline: none ;
-    border-width:0px ;
- }
- .image-banner__button:hover span{
-    color: #D03c3f;
-    outline: none ;
- }
- /* button.splide__arrow.splide__arrow--prev{
-    top: unset;
-    bottom: 1%;
-    transform : unset;
-    background: none;
-    cursor: pointer;
-    left: 40%;
+} */
+
+button.splide__arrow.splide__arrow--prev{
+  top: unset;
+  bottom: 1%;
+  transform : unset;
+  background: none;
+  cursor: pointer;
+  left: 43%;
+
+}
+button.splide__arrow.splide__arrow--prev svg{
+  fill : #fff;
+  height: 14px;
+  width: 14px;
+}
+
+button.splide__arrow.splide__arrow--next{
+  top: unset;
+  bottom: 1%;
+  transform : unset;
+  background: none;
+  cursor: pointer;
+  right: 43%;
+}
+button.splide__arrow.splide__arrow--next svg{
+  fill : #fff;
+  height: 14px;
+  width: 14px;
   
+}
+button.splide__pagination__page {
+  width: 8px;
+  height: 8px;
+  margin: 0px 15px;
+  background-color: transparent;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  border: 1px solid white;
+  margin-bottom: 8px;
+}
+button.splide__pagination__page.is-active{
+  width: 30px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+@media screen and (max-width:749px){
+  button.splide__arrow.splide__arrow--prev{
+      left: 32%;
   }
-  
-  
-  button.splide__arrow.splide__arrow--prev svg{
-    fill : #fff;
-    height: 14px;
-    width: 14px;
-    
-  }
-  
   button.splide__arrow.splide__arrow--next{
-    top: unset;
-    bottom: 1%;
-    transform : unset;
-    background: none;
-    cursor: pointer;
-    right: 40%;
-  }
-  button.splide__arrow.splide__arrow--next svg{
-    fill : #fff;
-    height: 14px;
-    width: 14px;
-   
+      right: 32%;
   }
   button.splide__pagination__page {
-    width: 8px;
-    height: 8px;
-    margin: 0px 15px;
-    background-color: transparent;
-    border-radius: 50%;
-    transition: background-color 0.3s ease;
-    border: 1px solid white;
-    margin-bottom: 8px;
+      margin:8px;
   }
-  button.splide__pagination__page.is-active{
-    width: 30px;
-    border-radius: 10px;
-    background-color: #fff;
-  } */
+  .splide__slide{
+      position: relative;
+      padding-bottom: 100%;
+      
+  }
+  .splide__slide img {
+      position: absolute;
+      object-fit: cover;
+      
+  }
+  
+}
+@media screen and (min-width:750px) and (max-width:1300px){
+  button.splide__arrow.splide__arrow--prev{
+    left: 38%;
+  }
+  button.splide__arrow.splide__arrow--next{
+      right: 38%;
+  }
 
-  @media screen and (max-width:1100px){
-    button.splide__arrow.splide__arrow--prev{
-        left: 30%;
-    }
-    button.splide__arrow.splide__arrow--next{
-        right: 30%;
-    }
-    button.splide__pagination__page {
-        margin:8px;
-    }
-    .splide__slide{
-        position: relative;
-        padding-bottom: 100%;
-        
-    }
-    .splide__slide img {
-        position: absolute;
-        object-fit: cover;
-       
-    }
-    
-  }
+}

@@ -1,13 +1,13 @@
-*,.faq-section__block-count{
-    color: #000000;
+
+.faq-secttion_title-and-description{
+    margin-bottom:30px;
 }
 .faq-section__title p{
     margin:0px 0px 8px;
 }
 .faq-section__description{
     color:#000000CC;
-    width:500px;
-    font-weight:500;
+    max-width:500px;
     margin:0px;
 }
 .faq-section__block{
@@ -30,11 +30,11 @@
 .faq-section__block-answer{  
     margin:0px;
     transition: all 0.5s ease;
-    
 }
 .faq-section__block-container div:last-child{
     border-bottom-width:0px;
 }
+
 @media screen and (max-width:749px){
     .faq-section__description{
         width:300px;

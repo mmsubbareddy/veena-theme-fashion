@@ -1,18 +1,8 @@
-.subbu          {
-    border: 2px solid green;
-}
-
 
 .testimonial__heading-section{
     margin-bottom: 30px;
     background-color: transparent;
-   
   }
-  
-.testimonial__section-heading{
-    color: #000;
-}
-  
   
   .testimonial{
     background: #f5f5f5;
@@ -20,7 +10,8 @@
   
   .testimonial__slide{
     background: #fff;
-    padding: 25px;
+    padding:25px;
+    border-radius:16px ;
   }
   
   .testimonial__image img{
@@ -32,19 +23,16 @@
   
   .testimonial__heading{
     margin-top: 15px;
-    color: black;
-    
   }
   
   .testimonial__designation{
     font-weight: 400;
     font-size: 14px;
-    color: black;
+    
   }
   
   .testimonial__comment p{
     margin: 20px 0 0 0;
-    color: black;
   }
   
   .testimonial .splide__arrow--next {

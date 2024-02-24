@@ -9,14 +9,7 @@
         background-color:{{ section.settings.background_color }};
     }
     {% for block in section.blocks %}
-        .usp-container__individual-grid-item-{{ block.id }}{
-            width: 288px;
-            text-align:{{block.settings.text_alignment}};
-            margin:10px 0px;
-            
-        }
         .usp-container__svg-{{ block.id }} svg{
-            
             transition: transform 0.3s ease;
             width: 40px;
             height: 40px;
@@ -32,7 +25,7 @@
         <div class="page-width">
             <div class="grid grid--1-col grid--2-col-tablet  grid--4-col-desktop usp-container__grid-container">
                 {% for block in section.blocks %}
-                    <div class="grid__item usp-container__individual-grid-item-{{ block.id }}">
+                    <div class="grid__item usp-container__individual-grid-item {{block.settings.text_alignment}}">
                         {% if block.settings.usp_icon != blank %}
                             <div class="usp-container__svg-{{ block.id }}">{{ block.settings.usp_icon }}</div>
                         {% endif %}

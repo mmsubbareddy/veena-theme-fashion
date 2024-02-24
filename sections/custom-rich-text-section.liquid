@@ -1,4 +1,5 @@
 {{ "section-custom-rich-text-section.css" | asset_url | stylesheet_tag }}
+<script src="{{"language-text-animation.js"  | asset_url}}" defer></script>
 
 {% style %}
     .padding-{{ section.id }}{
@@ -14,8 +15,6 @@
     }
 {% endstyle %}
 
-
-
 <div class="padding-{{ section.id }}">
   <div class="page-width">
     <div class="custom-rich-text {{section.settings.content_alignment}}">
@@ -24,21 +23,21 @@
           {% if block.type == 'pre-heading-content' and block.settings.pre_heading_content != blank %}
             <p class="custom-rich-text_preheading">{{ block.settings.pre_heading_content }}</p>
           {% elsif block.type == 'heading-content' and block.settings.heading_content != blank %}
-            <h2 class="hxl custom-rich-text__heading">
+            <h2 class="hxl scroll-line-animation custom-rich-text__heading">
               {{ block.settings.heading_content }}
             </h2>
           {% elsif block.type == 'button-content' and block.settings.button_content != blank %}
-                <div class="custom-rich-text__button-container">
-                    <a
-                    {% if block.settings.button_link == blank %}
-                        role="link" aria-disabled="true"
-                    {% else %}
-                        href="{{ block.settings.button_link }}"
-                    {% endif %}
-                    class="button"
-                    >
-                    <span>{{ block.settings.button_content }}</span>
-                    </a>
+          <div>    
+              <a
+                {% if block.settings.button_link == blank %}
+                    role="link" aria-disabled="true"
+                {% else %}
+                    href="{{ block.settings.button_link }}"
+                {% endif %}
+                class="custom-button-secondary"
+                >
+                <span>{{ block.settings.button_content }}</span>
+              </a>
             </div>
           {% endif %}
         {% endfor %}

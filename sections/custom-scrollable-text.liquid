@@ -1,11 +1,9 @@
-{{ 'section-custom-scrollable-text.css' | asset_url |stylesheet_tag }}
-
+{{'section-custom-scrollable-text.css' |  asset_url |  stylesheet_tag}}
 {%  style  %}
     .padding-{{section.id}} {
         padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
         padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
     }
-
     @media screen and (min-width: 750px) {
         .padding-{{section.id}} {
             padding-top: {{ section.settings.padding_top }}px;
@@ -13,10 +11,6 @@
         }
     }
 {% endstyle %}
-
-
-
-
 <div class="scrolling-banner padding-{{section.id}}">
     <div class="scrolling-banner__scrolling-wrapper">
         <div class="scrolling-banner__scrolling-items-wrapper">
@@ -65,8 +59,6 @@
         </div>
     </div>
 </div>
-
-
 {% schema %}
 {
     "name": "Custom scrolling banner",

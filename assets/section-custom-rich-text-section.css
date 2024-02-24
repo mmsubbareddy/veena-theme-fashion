@@ -7,81 +7,41 @@
 }
 .custom-rich-text_preheading{
   color: #000000CC;
-  font-weight: 400;
-  margin-bottom: 0px;
+  margin: 0px;
 }
-.custom-rich-text__heading p{
+.custom-rich-text__text-content .scroll-line-animation p{
   margin: 10px 0px 0px;
 }
-.custom-rich-text__heading a{
+.custom-rich-text__heading a span{
     color: #D03c3f;
-    text-decoration: none;
 }
 
-.custom-rich-text__heading a {
-  position: relative;
-}
-.custom-rich-text__heading a::before {
-  content: "";
-  position: absolute;
-  background-color: #D03C3F;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 3px;
-  transition: width 0.5s ease-in-out;
-  z-index: -1;
-}
-
-.custom-rich-text__heading a:hover::before {
-  width: 100%;
-}
-.custom-rich-text__heading a:not(:hover)::before {
-  width: 0;
-  right: 0;
-  left: auto;
-}
-
-/* button animation */
-.custom-rich-text__button-container{
-  margin:30px 0px 0px;
-}
-.custom-rich-text__button-container a{
-  font-size: 14px;
-  background-color: #D03c3f;
-
-}
-.custom-rich-text__button-container a {
-  position: relative;
-  overflow: hidden;
-}
-.custom-rich-text__button-container a span {
-  color: white;
-  z-index: 3;
-}
-.custom-rich-text__button-container a::before {
-  content: "";
-  position: absolute;
-  background-color: #000000;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  transition: width 0.4s ease-in-out;
-  z-index: 1;
-}
-.custom-rich-text__button-container a:hover::before {
-  width: 100%;
-}
-.custom-rich-text__button-container a:not(:hover)::before {
-  width: 0;
-  right: 0;
-}
 @media screen and (max-width:750px){
-    .custom-rich-text__heading a{
+  .custom-rich-text__heading a span{
         color: #D03c3f;
-        font-size: 52px;
         text-decoration: none;
     }
+    .custom-rich-text__text-content{
+      max-width:350px;
+    }
     
+}
+
+/* language animation css */
+.letter {
+  display: inline-block;
+  position: relative;
+  transform: translateZ(25px);
+  transform-origin: 50% 50% 25px;
+}
+.letter.out {
+  transform: rotateX(90deg);
+  transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.letter.behind {
+  transform: rotateX(-90deg);
+}
+.letter.in {
+  transform: rotateX(0deg);
+  transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }

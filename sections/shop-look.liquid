@@ -28,7 +28,6 @@
     }
     .shoplook__product-1-{{block.id}},.shoplook__product-2-{{block.id}}{
             background: white;
-            border: 1px solid blue;
             padding: 6px;
             width: 240px;
             border-radius: 20px;
@@ -80,7 +79,6 @@
         <div class="grid grid--1-col grid--3-col-desktop shoplook__grid-container ">
             {% for block in section.blocks %}
                 <div class="grid__item shoplook__grid-item">
-
                     <div class="shoplook__grid-image">
                         {% if block.settings.desktop_image != blank or block.settings.mobile_image != blank %}
                             <div class="shoplook_image">
@@ -138,7 +136,7 @@
                               {% else %}
                                 href="{{ block.settings.button_link }}"
                               {% endif %}
-                              class="button shoplook__button"
+                              class="custom-button-secondary_color"
                             >
                                 <span>{{ block.settings.button_text }}</span>
                             </a>

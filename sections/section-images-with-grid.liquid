@@ -2,45 +2,22 @@
 
 {% style %}
 .padding-{{ section.id }}{
-    padding-top:{{section.settings.padding_top}}px;
-    padding-top:{{section.settings.padding_top}}px;   
+    padding-top:{{section.settings.padding_top | divided_by:2}}px;
+    padding-top:{{section.settings.padding_top | divided_by:2}}px;   
 }
-
-{% for block in section.blocks %}
-    .grid-conatiner__inner-container-{{ block.id }}{
-        width: 293px;
-        margin:10px;
-        text-align:{{block.settings.text_alignment}};
-    }
-    .grid-container__collection-1__content-{{ block.id }}{
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        width: 100%;
-        height: 100%;
-        display:flex;
-        justify-content:center;
-        align-items:{{block.settings.content_alignment}};
-    }
-
-    @media screen and (min-width:749px){
-    .grid-conatiner__inner-container-{{ block.id }}{
-        width: 452px;
-    }
-    .padding-{{ section.id }}{
-        padding-top:{{section.settings.padding_top}}px;
-        padding-top:{{section.settings.padding_top}}px;   
-    }
+@media screen and (min-width:749px){
+  .padding-{{ section.id }}{
+      padding-top:{{section.settings.padding_top}}px;
+      padding-top:{{section.settings.padding_top}}px;   
+  }
 }
-{% endfor %}
 {% endstyle %}
-
 
 <div class="padding-{{ section.id }}">
     <div class="page-width">
         <div class="grid-container grid grid--1-col grid--2-col-desktop">
         {% for block in section.blocks %}
-            <div class="grid__item grid-container__collection-1 {{ section.settings.selected_mode }}">
+            <div class="grid__item grid-container__collection {{ section.settings.selected_mode }}">
                 {% if block.settings.desktop_image != blank or block.settings.mobile_image !=blank %}
                     {% render 'responsive-picture',
                         desktopImage: block.settings.desktop_image,
@@ -49,17 +26,16 @@
                     {% else %}
                     {{ 'collection-1' | placeholder_svg_tag }}
                 {% endif %}
-                <div class="grid-container__collection-1__content-{{ block.id }}">
-                    <div class="grid-conatiner__inner-container-{{ block.id }}">
-                    {%  if block.settings.collection_category != blank %}
+                <div class="grid-container__collection__content {{ block.settings.content_alignment }}">
+                    <div class="grid-conatiner__inner-container {{block.settings.text_alignment}}">
+                      {%  if block.settings.collection_category != blank %}
                         <ul class="grid-container__under-order-list">
                           <li>{{ block.settings.collection_category }}</li>
                         </ul>
                       {% endif %}
                       {% if block.settings.heading_content != blank  %}
-                        <h2 class="h2">{{ block.settings.heading_content }}</h2>
+                        <h2 class="grid-container__heading">{{ block.settings.heading_content }}</h2>
                       {% endif %}
-
                       {% if  block.settings.button_content != blank %}
                         <a 
                           {% if block.settings.button_link == blank %}
@@ -67,27 +43,18 @@
                           {% else %}
                             href="{{ block.settings.button_link }}"
                           {% endif %}
-                          class="button grid-container__button custom-button-primary"
+                          class="custom-button-primary"
                         >
-                            <span>{{ block.settings.button_content }}</span>
+                          <span>{{ block.settings.button_content }}</span>
                         </a>
                       {% endif %}
                       </div>
                 </div>
-
-
             </div>
-
         {% endfor %}
       </div>
     </div>
-    
 </div>
-
-
-
-
-
 {% schema %}
     {
         "name":"Grid images section",
@@ -184,19 +151,19 @@
                         "label": "Content position",
                         "options": [
                           {
-                            "value": "start",
+                            "value": "align-start",
                             "label": "Top"
                           },
                           {
-                            "value": "center",
+                            "value": "align-center",
                             "label": "Center"
                           },
                           {
-                            "value": "end",
+                            "value": "align-end",
                             "label": "Bottom"
                           }
                         ],
-                        "default": "center"
+                        "default": "align-center"
                       },
                       {
                         "type": "text",

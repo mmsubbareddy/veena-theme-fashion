@@ -1,7 +1,5 @@
 {{ "section-custom-collections-list.css" | asset_url | stylesheet_tag }}
 <script src="{{ "custom-slider.js" | asset_url }}" defer></script>
-
-
 {% style %}
   .padding-{{ section.id }} {
       padding-top: {{ section.settings.padding_top | divided_by: 2  }}px;
@@ -39,7 +37,7 @@
 
 <div class="collections-list padding-{{ section.id }}">
   <div class="page-width">
-    <div class="collections-list__heading-section color-{{ section.settings.color_scheme }}">
+    <div class="collections-list__heading-section">
       <h2 class="h1 collection-list__heading"> {{ section.settings.section_heading }} </h2>
       <div>
         {% if section.settings.section_button_text %}
@@ -59,8 +57,7 @@
         <div class="splide__track">
           <ul class="splide__list">
             {% for block in section.blocks %}
-              
-              <li class="splide__slide collections-list__slide cutom-border-radius">
+              <li class="splide__slide collections-list__slide">
                 {% if block.settings.desktop_image != blank %}
                   <div class="collections-list__image"> 
                     {% render "responsive-picture", desktopImage: block.settings.desktop_image, mobileImage: block.settings.mobile_image class:"media media--portrait" %}
@@ -115,11 +112,6 @@
         "type": "url",
         "id": "section_button_link",
         "label": "Section button link"
-      },
-      {
-        "type": "color_scheme",
-        "id": "color_scheme",
-        "label": "Color scheme"
       },
       {
         "type" : "header",

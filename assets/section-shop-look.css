@@ -4,9 +4,9 @@
     position: relative;
 }
 .shoplook_image img{
-    border-radius: 16px;
-    width: 100%;
-    height: 100%;
+  border-radius: 16px;
+  width: 100%;
+  height: 100%;
 }
 
 /* dots related css */
@@ -14,7 +14,6 @@
     position: absolute;
     top: 0;
   }
-  
   .shoplook__bookdots::before {
     content: "";
     position: absolute;
@@ -26,7 +25,6 @@
     left: 3px;
     top: 3px;
   }
-  
   .shoplook__bookdots::after {
     content: "";
     position: absolute;
@@ -40,10 +38,8 @@
   }
 .shoplook__grid-content{
     margin-top: 10px;
-    height: 150px; 
 }
 .shoplook__heading p{
-    color: #000000;
     margin-bottom: 5px;
     margin-top: 0px;
 }
@@ -51,8 +47,6 @@
     color: #000000CC;
     font-size: 18px;
 }
-
-
 .shoplook__product-1-inner-container{
     display:flex;
     gap:5px;
@@ -63,71 +57,28 @@
     flex-direction:column;
     gap:3px;
     width:70%;
-    overflow-x:auto;
 }
 
 .shoplook__product-heading{
-        border:2px solid red;
-        margin:0px;
-        padding:0px;
-        
+    margin:0px;
+    padding:0px; 
 }
 
 .shoplook__product-heading a{
     text-decoration:none;
-    color:black;
-    font-size:10px;
+    /* font-size:10px; */
 }
 .shoplook__product-price{
-    color:black;
     margin:0px;
-    font-size:16px;
+    /* font-size:16px;
     font-weight:600;
-    height:20px;
+    height:20px; */
 }
 .shoplook__product-compare-at-price{
-    height:15px;
+    /* height:15px; */
     color:#00000080;
     font-size:12px;
     text-decoration:line-through;
     margin:0px;
 }
-
-
-
-
-
-
-/* button animation */
-.shoplook__grid-content a{
-    color: white;
-    background-color: #000000;
-  
-  }
-  .shoplook__grid-content a {
-    position: relative;
-    overflow: hidden;
-  }
-  .shoplook__grid-content a span {
-    color: white;
-    z-index: 3;
-  }
-  .shoplook__grid-content a::before {
-    content: "";
-    position: absolute;
-    background-color: #D03c3f;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    transition: width 0.4s ease-in-out;
-    z-index: 1;
-  }
-  .shoplook__grid-content a:hover::before {
-    width: 100%;
-  }
-  .shoplook__grid-content a:not(:hover)::before {
-    width: 0;
-    right: 0;
-  }
 

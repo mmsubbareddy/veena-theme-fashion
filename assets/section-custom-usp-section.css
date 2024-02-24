@@ -1,13 +1,13 @@
 
-.usp-container__heading{
-    color: black;
-    margin-bottom: 6px;
+.usp-container__heading p{
+    margin:0px 0px 0px 6px;
 }
 .usp-container__description{
     color: #00000099;
-    font-size: 14px;
 }
-
+.usp-container__grid-container{
+    padding:40px 0px;
+}
 
 
 

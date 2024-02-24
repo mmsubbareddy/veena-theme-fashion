@@ -80,7 +80,7 @@
             "desktop_image": "shopify:\/\/shop_images\/1.png",
             "mobile_image": "shopify:\/\/shop_images\/1.png",
             "list_content": "Women's Apparel",
-            "heading_content": "<h1>Elevate your wardrobe with our <a href=\"https:\/\/veena-theme-fashion.myshopify.com\/collections\" title=\"All collections\">limited-time<\/a> fashion offer!<\/h1>",
+            "heading_content": "<p>Elevate your wardrobe with our<a href=\"\/collections\/bottoms\" title=\"Bottoms\"> limited time<\/a> fashion offer!<\/p>",
             "color_scheme": "scheme_1",
             "button_text": "Explore More",
             "button_link": "shopify:\/\/collections",
@@ -164,7 +164,7 @@
         "text_alignment": "center",
         "content_alignment": "justify-center",
         "padding_top": 60,
-        "padding_bottom": 41
+        "padding_bottom": 40
       }
     },
     "section_images_with_grid_aewcTk": {
@@ -176,7 +176,7 @@
             "desktop_image": "shopify:\/\/shop_images\/Rectangle_4264.png",
             "mobile_image": "shopify:\/\/shop_images\/Rectangle_4264.png",
             "text_alignment": "center",
-            "content_alignment": "center",
+            "content_alignment": "align-center",
             "collection_category": "Women's",
             "heading_content": "Women's Clothing Collection",
             "button_content": "Explore",
@@ -189,7 +189,7 @@
             "desktop_image": "shopify:\/\/shop_images\/Rectangle_4265.png",
             "mobile_image": "shopify:\/\/shop_images\/Rectangle_4265.png",
             "text_alignment": "center",
-            "content_alignment": "center",
+            "content_alignment": "align-center",
             "collection_category": "Fashion",
             "heading_content": "Women's Sustainable Style Hub",
             "button_content": "Explore",
@@ -289,11 +289,10 @@
         "section_heading": "Captivating Collection",
         "section_button_text": "View All",
         "section_button_link": "",
-        "color_scheme": "",
-        "slider_autoplay": true,
-        "slide_dots": true,
+        "slider_autoplay": false,
+        "slide_dots": false,
         "slide_arrows": true,
-        "infinite_scroll": true,
+        "infinite_scroll": false,
         "slider_autoplay_duration": 3,
         "text_alignment": "center",
         "alignment_position": "align-center justify-center",
@@ -327,8 +326,8 @@
             "button_text": "explore",
             "button_color": "#000000",
             "button_background_color": "",
-            "button_hover_color": "#dd1d1d",
-            "button_hover_background_color": "",
+            "button_hover_color": "#ffffff",
+            "button_hover_background_color": "#121212",
             "button_link": "shopify:\/\/collections\/t-shirts"
           }
         },
@@ -366,7 +365,7 @@
             "desktop_image": "shopify:\/\/shop_images\/Rectangle_55.png",
             "mobile_image": "shopify:\/\/shop_images\/Rectangle_55.png",
             "text_alignment": "center",
-            "content_alignment": "end",
+            "content_alignment": "align-end",
             "collection_category": "Men's",
             "heading_content": "Introducing Our Distinguished Men's Clothing Collection",
             "button_content": "Explore",
@@ -379,7 +378,7 @@
             "desktop_image": "shopify:\/\/shop_images\/Rectangle_56.png",
             "mobile_image": "shopify:\/\/shop_images\/Rectangle_56.png",
             "text_alignment": "center",
-            "content_alignment": "end",
+            "content_alignment": "align-end",
             "collection_category": "Women's",
             "heading_content": "Elevate Your Wardrobe With Our Women's Clothing Collection",
             "button_content": "Explore",
@@ -537,19 +536,49 @@
             "designation": "Fashion Editor",
             "comment": "<p>\"As a fashion editor, I've seen it all. This store stands out with its curated selection and attention to detail. The clothing is not just fashion; it's art in motion. His effective communication and ability to motivate and guide the sales team is second to none.\"<\/p>"
           }
+        },
+        "testimonia_blocks_CAwTzp": {
+          "type": "testimonia-blocks",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/3_b85a25e7-eff6-49ab-9fc7-ecdf71bb4ef1_1.jpg",
+            "heading": "Sarah Mitchell",
+            "designation": "Stylist",
+            "comment": "<p>\"A go-to destination for my clients. The diversity in styles is impressive, catering to every taste. The quality and elegance never disappoint. Her quick response and innovative solutions make him an invaluable asset to our team.\"<\/p>"
+          }
+        },
+        "testimonia_blocks_eFKBbz": {
+          "type": "testimonia-blocks",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4_e6c9abf8-cab4-4c51-8b5c-b87f6878ea97_1.jpg",
+            "heading": "Alex Rodriguez",
+            "designation": "Fashion Enthusiast",
+            "comment": "<p>\"Being a fashion enthusiast, I'm always on the lookout for unique pieces. This store exceeds expectations with its exceptional customer service. Her attention to detail, and ability to meet deadlines have made every project a success.\"<\/p>"
+          }
+        },
+        "testimonia_blocks_LBN34G": {
+          "type": "testimonia-blocks",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/5_8692d143-4fac-48d0-9ba7-4bf86ec25a15_1.jpg",
+            "heading": "Grace Turner",
+            "designation": "Influencer",
+            "comment": "<p>\"Obsessed with my recent purchases! The store's fashion-forward approach aligns perfectly with my style. The pieces are Instagram-worthy. His commitment to resolving issues have greatly contributed to our customer satisfaction levels.\"<\/p>"
+          }
         }
       },
       "block_order": [
         "testimonia_blocks_4pQpXR",
-        "testimonia_blocks_RbGFVU"
+        "testimonia_blocks_RbGFVU",
+        "testimonia_blocks_CAwTzp",
+        "testimonia_blocks_eFKBbz",
+        "testimonia_blocks_LBN34G"
       ],
       "settings": {
         "section_heading": "Our Customers Review",
-        "slider_autoplay": true,
-        "slide_dots": true,
+        "slider_autoplay": false,
+        "slide_dots": false,
         "slide_arrows": true,
-        "infinite_scroll": true,
-        "slide_animation": "loop",
+        "infinite_scroll": false,
+        "slide_animation": "slide",
         "slider_autoplay_duration": 3000,
         "text_alignment": "center",
         "padding_top": 36,

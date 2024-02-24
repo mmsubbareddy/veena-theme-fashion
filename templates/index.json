@@ -123,7 +123,7 @@
         "slider_content_Dfn6Gn"
       ],
       "settings": {
-        "enable_autoplay": true,
+        "enable_autoplay": false,
         "enable_dots": true,
         "rewind_slides": true,
         "enable_arrows": true,
@@ -162,7 +162,7 @@
       ],
       "settings": {
         "text_alignment": "center",
-        "content_alignment": "center",
+        "content_alignment": "justify-center",
         "padding_top": 60,
         "padding_bottom": 41
       }

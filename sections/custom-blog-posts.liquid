@@ -1,85 +1,100 @@
-{{   'section-custom-blog-posts.css' |  asset_url | stylesheet_tag}}
-{% comment %} <script src="{{"custom-splide-corousel.js" | asset_url}}" defer></script> {% endcomment %}
+{{ "section-custom-blog-posts.css" | asset_url | stylesheet_tag }}
+
 
 {% style %}
-.section-padding-{{ section.id }}{
-    padding-top:{{section.settings.padding_top}}px;
-    padding-bottom:{{section.settings.padding_bottom  }};
-}
+  .padding-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+  }
 
-
-@media screen and (min-width:749px){
-    .section-padding-{{ section.id }}{
-    padding-top:{{section.settings.padding_top | divided_by:2}}px;
-    padding-bottom:{{section.settings.padding_bottom | divided_by:2  }};
-}
-}
-
+  @media screen and (min-width: 750px) {
+    .padding-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
 {% endstyle %}
 
-<div class="blog-section section-padding-{{ section.id }}">
-    <div class="page-width">
-        <div class="blog-section__heading-and-button">
-            <h2 class="h2 blog-section__section-heading">{{ section.settings.section_heading }}</h2>
-            <a
-                {% if section.settings.section_button_link == blank %}
-                    role="link" aria-disabled="true"
-                {% else %}
-                    href="{{ section.settings.section_button_link }}"
-                {% endif %}
-                class="button blog-section__section-button"
-                >
-                <span>{{ section.settings.section_button_text }}</span>
-            </a>
-        </div>
-        <div class="grid grid--1-col  grid--2-col-desktop blog-section__articles-container">
-            {% for article in section.settings.blog.articles %}
-                <div class="grid__item blog-section__each-article-container">
-                    {% if article.image %}
-                            {% render 'responsive-picture',
-                                desktopImage: article.image,
-                                mobileImage: article.image
-                            %}
-                        {% else %}
-                        {{ 'hero-apparel-1' | placeholder_svg_tag }}
-                    {% endif %}
-                    <div class="blog-section__each-article-content-container">
-                        <div >
-                            {%  for each_tag in article.tags %}
-                                <span class="each_tag">{{ each_tag }}</span>
-                            {% endfor %}
-                            {% if article.title %}
-                            <h2 class="h2 blog-section__article-title">{{ article.title }}</h2>
-                            {% endif %}
-                            {% if article.author %}
-                            <p  class="blog-section__article-author">Publish by:{{ article.author }}</p>
-                            {% endif %}
-                            <div class="blog-section__excerpt-content">{{ article.excerpt }}</div>
-                        </div>  
-                        <div class="blog-section__button-and-published-date">
-                            <a
-                                {% if section.settings.section_button_link == blank %}
-                                    role="link" aria-disabled="true"
-                                {% else %}
-                                    href="{{ section.settings.section_button_link }}"
-                                {% endif %}
-                                class="blog-section__section-button"
-                                >
-                                <span class="readmore">Read more</span>
-                            </a>
-                            <div class="blog-section__published-date">{{ article.created_at | date:'%B %d, %Y' }}</div>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-
-        </div>
+{% capture slider-options-data %}
+  {
+    "autoplay" : {{ section.settings.slider_autoplay }},
+    "interval" : {{ section.settings.slider_autoplay_duration | times: 1000 }},
+    "type" : "{{ section.settings.slide_animation }}",
+    "pagination": {{ section.settings.slide_dots }},
+    "gap": "20px",
+    "perPage": 2,
+    "arrows" : {{ section.settings.slide_arrows }},
+    "rewind" : {{ section.settings.infinite_scroll }},
+    "perMove": 1,
+    "breakpoints": {
+    "750": {
+      "perPage": 1,
+      "destroy": true
+    }
+    }
+  }
+{% endcapture %} 
 
 
-
+<div class="custom-blogs padding-{{ section.id }}">
+  <div class="page-width">
+    <div class="custom-blogs__heading-section color-{{ section.settings.color_scheme }}">
+      {% if section.settings.section_heading != blank %}
+        <h2> {{ section.settings.section_heading }} </h2>   
+      {% endif %}  
+      
+      {% if section.settings.section_button_text != blank %}
+        <div class="">
+          <a class="custom-button-secondary_color" 
+            {% if section.settings.section_button_link == blank %}
+                role="link" aria-disabled="true"
+              {% else %}
+                href="{{ section.settings.section_button_link }}"
+            {% endif %}>
+            {{ section.settings.section_button_text }}
+          </a>
+        </div>    
+      {% endif %}  
     </div>
-
-
+     <custom-slider>
+      <section class="splide" aria-label="Blogs Splide" data-slider-options='{{ slider-options-data }}'>
+        <div class="splide__track">
+          <ul class="splide__list custom-blogs__splide-wrapper">
+            {% for blogPost in section.settings.blog.articles %}
+              
+              <li class="splide__slide custom-blogs__slide color-{{ section.settings.color_scheme }}">  
+                  <div class="custom-blogs__image">  
+                    {% render "responsive-picture", desktopImage: blogPost.image, class: "media media--square" %}
+                  </div>
+                  <div class="custom-blogs__blog-content">
+                    <div>
+                      {% if blogPost.tags != blank %}
+                        <div class="custom-blogs__tags color-{{ section.settings.color_scheme }}">
+                          {% for tag in blogPost.tags %}
+                            <a class="custom-blogs__tag" href="/blogs/news/tagged/{{ tag | handleize }}"> {{ tag }} </a>
+                          {% endfor %}  
+                        </div>            
+                      {% endif %}  
+                      <h2 class="h3 custom-blogs__title"> {{ blogPost.title }}</h2>
+                      <h2 class="h4 custom-blogs__author">Publish by: {{ blogPost.author }}</h2>
+                      <div class="h4 custom-blogs__info"> {{ blogPost.excerpt}} </div>
+                    </div>
+                    <div>
+                      <hr class="custom-blogs__hr-line"/>
+                      <div class="custom-blogs__read-more">    
+                        <a href="{{ blogPost.url }}">Read more</a>
+                        <div class="">{{ blogPost.created_at | date: '%B %d, %Y'}}</div>
+                      </div>
+                    </div>            
+                  </div>
+              </li>
+            {% endfor %}  
+          </ul>
+        </div>
+      </section>
+    </custom-slider>
+    
+  </div>
 </div>
 
 
@@ -105,12 +120,17 @@
         "type": "text",
         "id": "section_button_text",
         "label": "Section button text",
-        "default": "Read All"
+        "default": "View All"
       },
       {
         "type": "url",
         "id": "section_button_link",
         "label": "Section button link"
+      },
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "Color scheme"
       },
       {
         "type" : "header",

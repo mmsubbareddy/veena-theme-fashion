@@ -9,6 +9,17 @@
 .product-card__image{
     border-radius:16px;
 }
+.product-card__image:hover img:nth-child(1) {
+    opacity: 0;
+}
+  
+.product-card__image:hover img:nth-child(2) {
+    opacity: 1;
+}
+.product-card__selected-variant {
+    box-shadow: 0 0 0 3px white inset;
+    border: 1px solid rgb(89, 0, 255);
+  }
 .product-card__badge-and-percentage{
     display: flex;
     width:92%;
@@ -102,10 +113,7 @@
     height: 20px;
     border-radius:50%;
 }
-.product-card__each-variant:hover{
-    box-shadow: 0 0 0 3px white inset;
-    border:1px solid blue;
-}
+
 
 @media screen and (max-width:749px){
     .product-card__badge-and-percentage .custom-button-secondary_color{

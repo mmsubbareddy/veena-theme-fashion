@@ -421,13 +421,11 @@
         "button_text": "See All Products",
         "button_link": "shopify:\/\/collections\/all",
         "products_list": [
-          "august-rib-wool-oak",
           "full-sleeve-high-neck-t-shirt",
           "full-sleeve-high-neck-t-shirt-1",
           "men-winter-jacket",
           "mens-half-sleeve-t-shirt",
           "mens-winter-hooded-jacket",
-          "women-shirt-beige-dress",
           "women-solid-casual-jacket",
           "womens-casual-jacket",
           "womens-casual-sweaters"
@@ -715,6 +713,23 @@
         "padding_bottom": 36
       }
     },
+    "custom_blog_posts_9bNDGN": {
+      "type": "custom-blog-posts",
+      "settings": {
+        "blog": "let-you-know",
+        "section_heading": "Let You Know",
+        "section_button_text": "View All",
+        "section_button_link": "",
+        "color_scheme": "",
+        "slider_autoplay": true,
+        "slide_dots": false,
+        "slide_arrows": true,
+        "infinite_scroll": false,
+        "slider_autoplay_duration": 3,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
     "custom_faqs_xNx7Fz": {
       "type": "custom-faqs",
       "blocks": {
@@ -803,6 +818,7 @@
     "custom_featured_brands_4pDUaM",
     "custom_image_with_text_BHePme",
     "custom_testimonial_X4PafE",
+    "custom_blog_posts_9bNDGN",
     "custom_faqs_xNx7Fz",
     "color_swatch_Nq8HBR"
   ]

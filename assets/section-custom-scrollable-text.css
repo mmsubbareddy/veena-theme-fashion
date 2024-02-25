@@ -10,15 +10,17 @@
   );
 }
 
+.scrolling-banner__scrolling-content{
+  display: flex;
+}
 .scrolling-banner__scrolling-items-wrapper {
   display: flex;
   flex-wrap: nowrap;
   white-space: nowrap;
-  animation: scroll-left 16s linear infinite;
+  animation: scroll-left 80s linear infinite;
 }
 
-.scrolling-banner__scrolling-wrapper:hover
-  .scrolling-banner__scrolling-items-wrapper {
+.scrolling-banner__scrolling-wrapper:hover .scrolling-banner__scrolling-items-wrapper{
   animation-play-state: paused;
 }
 
@@ -31,7 +33,7 @@
 
 @keyframes scroll-left {
   0% {
-    transform: translateX(-10%);
+    transform: translateX(15%);
   }
   100% {
     transform: translateX(-100%);

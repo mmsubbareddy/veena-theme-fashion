@@ -28,8 +28,8 @@
     .shoplook__product-1-{{block.id}},.shoplook__product-2-{{block.id}}{
             background: white;
             padding: 6px;
-            width: 240px;
             border-radius: 20px;
+            width:245px;
             position: absolute;
             top: -50%;
             transition:all 0.35s ease;
@@ -47,6 +47,16 @@
         }
 
     } 
+    @media screen and (max-width:749px){
+        .shoplook__product-1-{{block.id}},.shoplook__product-2-{{block.id}}{
+            width:150px;
+        }
+        .shoplook__product-1-inner-container{
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+        }
+    }
 {% endfor %}
 {% endstyle %}
 <div class="shoplook padding-{{ section.id }}">

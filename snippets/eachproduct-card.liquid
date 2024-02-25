@@ -91,14 +91,16 @@
                   {% for option_value in product_option.values %}
                       <li class="product-card__variant" >
                         <label>
-                            <input 
-                              data-value="{{ option_value | handleize}}"
-                              type="radio" 
-                              name="option-{{ product_option.name | handleize }}" 
-                              value="{{ option_value }}"
-                              {% if product_option.selected_value == option_value %}checked{% endif %}
-                            >
-                            <div class="product-card__each-variant" style="background-color:{{ option_value | handleize}};" data-value="{{   option_value }}"> </div>
+                          <div class="product-card__each-variant {% if product_option.selected_value == option_value %}product-card__selected-variant{% endif %}" style="background-color:{{ option_value | handleize}};"> </div>
+                          <input
+                            hidden
+                            type="radio" 
+                            name='option-{{ product_option }}'  
+                            value = {{ option_value }}
+                            {% if product_option.selected_value ==option_value %}
+                                checked
+                            {% endif %}
+                        />  
                       </label>
                       </li>                    
                   {% endfor %}
@@ -123,13 +125,12 @@
           {% elsif current_variant.inventory_quantity > 10 %}
           <p class="product-card__stock"> {{ current_variant.inventory_quantity}} in stock</p>
           {% else %}
-          <p class="product-card__low-stock">Soldout</p>
+          <p class="product-card__low-stock">Out of stock</p>
         {% endif %}
         <div class='jdgm-widget jdgm-preview-badge'>
           {{ product.metafields.judgeme.badge }}
         </div>  
     </div>
-
     <script>
       {{ product.variants | json }}
     </script>

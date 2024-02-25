@@ -66,19 +66,26 @@
 
 .shoplook__product-heading a{
     text-decoration:none;
-    /* font-size:10px; */
+    color: black;
+}
+.shoplook__product-heading:hover a{
+    color: #d03c3f;
 }
 .shoplook__product-price{
     margin:0px;
-    /* font-size:16px;
-    font-weight:600;
-    height:20px; */
+    font-weight: 600;
 }
 .shoplook__product-compare-at-price{
-    /* height:15px; */
     color:#00000080;
     font-size:12px;
     text-decoration:line-through;
     margin:0px;
 }
+.shoplook__product-1-image{
+    border-radius:12px;
+    height:100%;
+    width:30%;
+
+} 
+
 

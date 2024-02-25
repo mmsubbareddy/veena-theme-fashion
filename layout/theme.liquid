@@ -34,9 +34,11 @@
     {%- if settings.animations_reveal_on_scroll -%}
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-
-    {{ 'splide.min.css' | asset_url | stylesheet_tag }}
     <script src="{{"splide.min.js" | asset_url}}"></script>
+    <script src="{{"custom-splide-corousel.js" | asset_url}}" defer></script>
+    <script src="{{ "custom-slider.js" | asset_url }}" defer></script>
+    {{ 'splide.min.css' | asset_url | stylesheet_tag }}
+   
 
     <script src="{{"product.js" | asset_url}}" defer></script>
 

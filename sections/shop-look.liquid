@@ -1,6 +1,5 @@
 {{ 'section-shop-look.css' | asset_url | stylesheet_tag }}
 
-
 {% style %}
 .padding-{{ section.id }}{
     padding-top:{{section.settings.padding_top  | divided_by:2}}px;
@@ -39,41 +38,17 @@
             opacity: 0;
             z-index: 1;
         }
-
-
-    .shoplook__dot1-{{ block.id }}:hover{
+    .shoplook__dot1-{{ block.id }}:hover,.shoplook__dot2-{{ block.id }}:hover{
         transform:scale(1.05);
-        .shoplook__product-1-{{block.id}}{
+        .shoplook__product-1-{{block.id}},.shoplook__product-2-{{block.id}}{
             visibility:visible;
             opacity:1;
             margin-left:30px;
         }
 
     } 
-    .shoplook__dot2-{{ block.id }}:hover{
-        transform:scale(1.05);
-        .shoplook__product-2-{{block.id}}{
-            visibility:visible;
-            opacity:1;
-            margin-left:30px;
-        }
-
-    } 
-    .shoplook__product-1-image-{{ block.id }}{
-        border-radius:12px;
-        height:100%;
-        width:30%;
-
-    }    
-
 {% endfor %}
-
-
 {% endstyle %}
-
-
-
-
 <div class="shoplook padding-{{ section.id }}">
     <div class="page-width">
         <div class="grid grid--1-col grid--3-col-desktop shoplook__grid-container ">
@@ -91,9 +66,9 @@
                                 {%  if block.settings.first_product != blank %}
                                 <div class="shoplook__product-1-{{ block.id }}">
                                     <div class="shoplook__product-1-inner-container">
-                                        <img src="{{ block.settings.first_product | image_url }}" height="60px" width="60px" width="60px" class="shoplook__product-1-image-{{ block.id }}"/>
+                                        <img src="{{ block.settings.first_product | image_url }}" height="60px" width="60px" width="60px" class="shoplook__product-1-image"/>
                                         <div class="shoplook__first-product-details">
-                                            <h2 class="shoplook__product-heading"><a href="{{ block.settings.first_product.url }}">{{ block.settings.first_product.title }}</a></h2>
+                                            <h2 class="h4 shoplook__product-heading"><a href="{{ block.settings.first_product.url }}">{{ block.settings.first_product.title }}</a></h2>
                                             <div class="shoplook__product-price">{{ block.settings.first_product.price | money_with_currency }}</div>
                                             <div class="shoplook__product-compare-at-price">{{ block.settings.first_product.compare_at_price | money_with_currency }}</div>
                                         </div>
@@ -105,7 +80,7 @@
                                 {% if block.settings.second_product !=blank %}
                                 <div class="shoplook__product-2-{{ block.id }}">
                                     <div class="shoplook__product-1-inner-container">
-                                        <img src="{{ block.settings.second_product | image_url }}" height="80px" width="60px" class="shoplook__product-1-image-{{ block.id }}"/>
+                                        <img src="{{ block.settings.second_product | image_url }}" height="80px" width="60px" class="shoplook__product-1-image"/>
                                         <div class="shoplook__first-product-details">
                                             <h3 class="shoplook__product-heading"><a href="{{ block.settings.second_product.url }}">{{ block.settings.second_product.title }}</a></h3>
                                             <div class="shoplook__product-price">{{ block.settings.second_product.price |money_with_currency}}</div>
@@ -150,8 +125,6 @@
     </div>
 
 </div>
-
-
 
 {% schema %}
     {

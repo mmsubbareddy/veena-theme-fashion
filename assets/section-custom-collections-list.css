@@ -3,7 +3,6 @@
 }
 .collections-list__heading-section{
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   margin-bottom: 20px; 
 }
@@ -98,4 +97,9 @@
   
   .collections-list .splide__arrow--next:hover::before {
       background-position: -100% 0;
+  }
+  @media screen and (max-width:393px){
+    .collections-list__heading-section{
+      flex-direction: column;
+    }
   }

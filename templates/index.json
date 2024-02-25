@@ -123,7 +123,7 @@
         "slider_content_Dfn6Gn"
       ],
       "settings": {
-        "enable_autoplay": false,
+        "enable_autoplay": true,
         "enable_dots": true,
         "rewind_slides": true,
         "enable_arrows": true,
@@ -396,6 +396,46 @@
         "padding_bottom": 39
       }
     },
+    "custom_deals_timer_ea6h3W": {
+      "type": "custom-deals-timer",
+      "settings": {
+        "heading": "Our Women's Clothing Collection.",
+        "description": "<p>where fashion meets flair, and every outfit becomes a statement.<\/p>",
+        "button_text": "View All",
+        "button_link": "shopify:\/\/collections\/all",
+        "section_button_color": "#ffffff",
+        "section_button_background_color": "#121212",
+        "section_button_hover_color": "#ffffff",
+        "section_button_hover_background_color": "#d03c3f",
+        "text_alignment": "left",
+        "no_of_days": 35,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "custom_feature_collections_9zKge8": {
+      "type": "custom-feature-collections",
+      "settings": {
+        "section_title": "Feature collections",
+        "text_alignment": "center",
+        "button_text": "See All Products",
+        "button_link": "shopify:\/\/collections\/all",
+        "products_list": [
+          "august-rib-wool-oak",
+          "full-sleeve-high-neck-t-shirt",
+          "full-sleeve-high-neck-t-shirt-1",
+          "men-winter-jacket",
+          "mens-half-sleeve-t-shirt",
+          "mens-winter-hooded-jacket",
+          "women-shirt-beige-dress",
+          "women-solid-casual-jacket",
+          "womens-casual-jacket",
+          "womens-casual-sweaters"
+        ],
+        "padding_top": 16,
+        "padding_bottom": 16
+      }
+    },
     "custom_usp_section_3jcbib": {
       "type": "custom-usp-section",
       "blocks": {
@@ -514,6 +554,96 @@
       "settings": {
         "padding_top": 16,
         "padding_bottom": 16
+      }
+    },
+    "custom_featured_brands_4pDUaM": {
+      "type": "custom-featured-brands",
+      "blocks": {
+        "featured_brands_Wtn7Fx": {
+          "type": "featured-brands",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1_cd395017-1471-444b-a792-aee354390d67_1.png"
+          }
+        },
+        "featured_brands_ECnPWq": {
+          "type": "featured-brands",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_26caca81-ef1b-413a-b2e8-dacb4042a47f_1.png"
+          }
+        },
+        "featured_brands_TmDHpB": {
+          "type": "featured-brands",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/3_526ac6af-9bcf-4f5a-a1f0-3b004c6d93b3_1.png"
+          }
+        },
+        "featured_brands_qniVY9": {
+          "type": "featured-brands",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/5_1.png"
+          }
+        },
+        "featured_brands_V7z48L": {
+          "type": "featured-brands",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/6_1.png"
+          }
+        },
+        "featured_brands_DEpPhe": {
+          "type": "featured-brands",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/8_1.png"
+          }
+        },
+        "featured_brands_G86CCk": {
+          "type": "featured-brands",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/7_1.png"
+          }
+        },
+        "featured_brands_ngnLtb": {
+          "type": "featured-brands",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4_97056f97-b5a0-46f5-aa2e-d315f39f0bde_1.png"
+          }
+        }
+      },
+      "block_order": [
+        "featured_brands_Wtn7Fx",
+        "featured_brands_ECnPWq",
+        "featured_brands_TmDHpB",
+        "featured_brands_qniVY9",
+        "featured_brands_V7z48L",
+        "featured_brands_DEpPhe",
+        "featured_brands_G86CCk",
+        "featured_brands_ngnLtb"
+      ],
+      "settings": {
+        "enable_autoplay": true,
+        "enable_dots": true,
+        "rewind_slides": true,
+        "enable_arrows": true,
+        "slide_animation": "loop",
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "custom_image_with_text_BHePme": {
+      "type": "custom-image-with-text",
+      "settings": {
+        "mobile_image": "shopify:\/\/shop_images\/4_0d5cc573-820a-4e7b-8f22-af8438216522.jpg",
+        "desktop_image": "shopify:\/\/shop_images\/4_0d5cc573-820a-4e7b-8f22-af8438216522.jpg",
+        "sub_text": "Introduce",
+        "title": "<h1>We Believe in the Power of Fashion<\/h1>",
+        "description": "fashion emerges as the universal language that speaks volumes without words.",
+        "content_alignment": "justify-center align-center",
+        "text_alignment": "center",
+        "button_text": "Show More",
+        "text_color": "#ffffff",
+        "button_text_color": "#000000",
+        "button_url": "shopify:\/\/collections",
+        "padding_top": 20,
+        "padding_bottom": 20
       }
     },
     "custom_testimonial_X4PafE": {
@@ -639,29 +769,6 @@
         "padding_bottom": 16
       }
     },
-    "custom_feature_collections_9zKge8": {
-      "type": "custom-feature-collections",
-      "settings": {
-        "section_title": "Feature collections",
-        "text_alignment": "center",
-        "button_text": "See All Products",
-        "button_link": "shopify:\/\/collections\/all",
-        "products_list": [
-          "august-rib-wool-oak",
-          "full-sleeve-high-neck-t-shirt",
-          "full-sleeve-high-neck-t-shirt-1",
-          "men-winter-jacket",
-          "mens-half-sleeve-t-shirt",
-          "mens-winter-hooded-jacket",
-          "women-shirt-beige-dress",
-          "women-solid-casual-jacket",
-          "womens-casual-jacket",
-          "womens-casual-sweaters"
-        ],
-        "padding_top": 16,
-        "padding_bottom": 16
-      }
-    },
     "color_swatch_Nq8HBR": {
       "type": "color-swatch",
       "blocks": {
@@ -689,11 +796,14 @@
     "custom_collections_list_qEEyPb",
     "custom_scrollable_text_C69QGj",
     "section_images_with_grid_HgHgpD",
+    "custom_deals_timer_ea6h3W",
+    "custom_feature_collections_9zKge8",
     "custom_usp_section_3jcbib",
     "shop_look_qaXq7K",
+    "custom_featured_brands_4pDUaM",
+    "custom_image_with_text_BHePme",
     "custom_testimonial_X4PafE",
     "custom_faqs_xNx7Fz",
-    "custom_feature_collections_9zKge8",
     "color_swatch_Nq8HBR"
   ]
 }

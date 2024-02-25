@@ -2,10 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
-
-
 .product-card__image-link{
     position: relative;
 }
@@ -42,41 +39,39 @@
 .product-card__off{
     background-color:#dd1d1d;
     padding: 4px 8px;
-    font-size: 11px;
     color: white;   
     border-radius:10px;
     text-decoration: none;
 }
-
 .product-card__quicklook span{
     font-size: 11px;
     font-weight:600;
     color: white;
 }
-
 .product-card__variants{
     display: flex;
     width:90%;
     justify-content: space-around;
     align-items: center;
 }
-
 .product-card__vendor{
     color: #000000B3;
     margin-top: 8px;
     font-size: 14px;
 }
-.product-card__heading{
-    color: #000000;
+.product-card__heading a{
+    text-decoration: none;
     font-size: 18px;
+    color: black;
+}
+.product-card__heading:hover a{
+    color: #dd1d1d;
 }
 .product-card__price{
-   
     font-size: 18px;
     font-weight: 600;
 }
 .product-card__compare_at_price{
-    
     font-size: 14px;
     text-decoration: line-through   ;
 }
@@ -106,48 +101,14 @@
     width:20px;
     height: 20px;
     border-radius:50%;
-    
 }
 .product-card__each-variant:hover{
     box-shadow: 0 0 0 3px white inset;
     border:1px solid blue;
 }
 
-
-
-/* quick look button animation */
-  .product-card__quicklook,.product-card__mobile-quicklook {
-    position: relative;
-    overflow: hidden;
-  }
-  .product-card__quicklook span,.product-card__mobile-quicklook svg {
-    z-index: 3;
-  }
-  .product-card__quicklook::before,.product-card__mobile-quicklook::before {
-    content: "";
-    position: absolute;
-    background-color: #D03c3f;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    transition: width 0.4s ease-in-out;
-    z-index: 1;
-  }
-  .product-card__quicklook:hover::before,.product-card__mobile-quicklook::before {
-    width: 100%;
-  }
-  .product-card__quicklook:not(:hover)::before,.product-card__mobile-quicklook:not(:hover)::before {
-    width: 0;
-    right: 0;
-  }
-
-
-
-
-
 @media screen and (max-width:749px){
-    .product-card__quicklook{
+    .product-card__badge-and-percentage .custom-button-secondary_color{
         display: none;
     }
     .product-card__mobile-quicklook{
@@ -158,5 +119,4 @@
         padding: 0px 7px;
         width: 35px;
     }
-
 }

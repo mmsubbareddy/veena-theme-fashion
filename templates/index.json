@@ -288,7 +288,7 @@
       "settings": {
         "section_heading": "Captivating Collection",
         "section_button_text": "View All",
-        "section_button_link": "",
+        "section_button_link": "shopify:\/\/collections",
         "slider_autoplay": false,
         "slide_dots": false,
         "slide_arrows": true,
@@ -296,6 +296,41 @@
         "slider_autoplay_duration": 3,
         "text_alignment": "center",
         "alignment_position": "align-center justify-center",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_sidebar_image_with_products_list_PJNGGW": {
+      "type": "custom-sidebar-image-with-products-list",
+      "settings": {
+        "section_heading": "New Arrivals",
+        "section_button_text": "See All Products",
+        "section_button_link": "shopify:\/\/collections\/all",
+        "featured_desktop_image": "shopify:\/\/shop_images\/1_6114fa4b-4542-47be-a3e4-500773f739ec.jpg",
+        "featured_mobile_image": "shopify:\/\/shop_images\/1_6114fa4b-4542-47be-a3e4-500773f739ec.jpg",
+        "featured_pre_heading": "Women's Apparel",
+        "featured_heading": "exclusive Best & New Arrivals collection",
+        "featured_description": "<p>Featured product description<\/p>",
+        "featured_button_text": "Explore",
+        "featured_button_link": "shopify:\/\/products\/women-shirt-beige-dress",
+        "color_scheme": "",
+        "text_alignment": "left",
+        "alignment_position": "align-center justify-center",
+        "slider_autoplay": true,
+        "slide_dots": true,
+        "slide_arrows": true,
+        "infinite_scroll": false,
+        "slider_autoplay_duration": 3,
+        "product_list": [
+          "full-sleeve-high-neck-t-shirt",
+          "full-sleeve-high-neck-t-shirt-1",
+          "womens-casual-jacket",
+          "women-solid-casual-jacket",
+          "womens-casual-sweaters",
+          "women-shirt-beige-dress",
+          "mens-winter-hooded-jacket",
+          "mens-half-sleeve-t-shirt"
+        ],
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -809,6 +844,7 @@
     "custom_rich_text_section_a3UCFx",
     "section_images_with_grid_aewcTk",
     "custom_collections_list_qEEyPb",
+    "custom_sidebar_image_with_products_list_PJNGGW",
     "custom_scrollable_text_C69QGj",
     "section_images_with_grid_HgHgpD",
     "custom_deals_timer_ea6h3W",

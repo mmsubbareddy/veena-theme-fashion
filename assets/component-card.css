@@ -484,14 +484,26 @@
 }
 
 /* custom css */
-.subbu{
-  border:1px solid blue;
-  width:80%; 
+.grid-columns-and-filters{
+  border-radius:16px ;
+  background-color: #0000000A;
+  padding: 15px;
+  margin: 0px 0px 30px;
+  width: 100%;
   margin-left:auto;
   display:flex;
   justify-content:space-between;
   align-items:center;
 }
+.grid-columns-and-filters .grid-columns{
+  display: flex;
+  align-items: center;
+}
+.grid-columns .columns{
+  display: flex;
+  margin-right: 8px;
+}
+
 summary a{
   color:red;
   text-decoration:none;
@@ -500,7 +512,6 @@ summary a{
   
 }
 .nav-menu{
-  /* min-height: 260px; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;

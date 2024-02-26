@@ -96,7 +96,7 @@
     margin-bottom: 10px;
   }
   
-  .custom-blogs__read-more:hover a{
+  .custom-blogs__read-more a:hover{
     color: #d03c3f;
   }
   

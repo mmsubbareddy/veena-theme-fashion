@@ -162,15 +162,12 @@ variant-selects {
   border-radius: 100%;
   width: 40px;
   height: 40px;
-  
-  
 }
 .variant-selected:checked + label{
   box-shadow: 0 0 0 3px rgb(var(--color-background)) inset;
 }
-
 /* custom color swatches css end */
 
-.disabled-variant {
+.disabled-variant{
   box-shadow: 0 0 0 8px rgb(var(--color-background)) inset;
 }

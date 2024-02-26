@@ -8,6 +8,7 @@
 .card {
   text-decoration: none;
   text-align: var(--text-alignment);
+  
 }
 
 .card:not(.ratio) {
@@ -45,6 +46,8 @@
   position: relative;
   box-sizing: border-box;
   border-radius: var(--border-radius);
+  padding-bottom: 12%;
+  /* here i am added padding-bottom for collection card exact match of veena original theme */
   border: var(--border-width) solid rgba(var(--color-foreground), var(--border-opacity));
 }
 
@@ -505,9 +508,8 @@
 }
 
 summary a{
-  color:red;
+  color:black;
   text-decoration:none;
-  color:gray;
   font-size:20px;
   
 }
@@ -527,6 +529,4 @@ summary a{
   border:1px solid gray;
   border-radius:13px;
   margin-bottom: 10px;
-
-  
 }

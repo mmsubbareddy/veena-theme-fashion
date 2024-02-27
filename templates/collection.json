@@ -38,10 +38,82 @@
             "title": "blackacid",
             "color_color": "#cdf054"
           }
+        },
+        "color_code_LXReyH": {
+          "type": "color_code",
+          "settings": {
+            "title": "black",
+            "color_color": "#000000"
+          }
+        },
+        "color_code_QxTiJR": {
+          "type": "color_code",
+          "settings": {
+            "title": "orange",
+            "color_color": "#f0b513"
+          }
+        },
+        "color_code_RTDCMN": {
+          "type": "color_code",
+          "settings": {
+            "title": "green",
+            "color_color": "#2bfa28"
+          }
+        },
+        "color_code_BtqBcb": {
+          "type": "color_code",
+          "settings": {
+            "title": "blue",
+            "color_color": "#193ff2"
+          }
+        },
+        "color_code_GNDPCe": {
+          "type": "color_code",
+          "settings": {
+            "title": "white",
+            "color_color": "#fff"
+          }
+        },
+        "color_code_jjW4a9": {
+          "type": "color_code",
+          "settings": {
+            "title": "pink",
+            "color_color": "#ffc0cb"
+          }
+        },
+        "color_code_PdEfB4": {
+          "type": "color_code",
+          "settings": {
+            "title": "red",
+            "color_color": "#f30c0c"
+          }
+        },
+        "color_code_FbqFFK": {
+          "type": "color_code",
+          "settings": {
+            "title": "violet",
+            "color_color": "#8f00ff"
+          }
+        },
+        "color_code_4NAbfk": {
+          "type": "color_code",
+          "settings": {
+            "title": "yellow",
+            "color_color": "#ffff00"
+          }
         }
       },
       "block_order": [
-        "color_code_pjNjfV"
+        "color_code_pjNjfV",
+        "color_code_LXReyH",
+        "color_code_QxTiJR",
+        "color_code_RTDCMN",
+        "color_code_BtqBcb",
+        "color_code_GNDPCe",
+        "color_code_jjW4a9",
+        "color_code_PdEfB4",
+        "color_code_FbqFFK",
+        "color_code_4NAbfk"
       ],
       "settings": {
       }

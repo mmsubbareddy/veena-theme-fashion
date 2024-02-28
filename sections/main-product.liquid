@@ -26,6 +26,15 @@
       padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
       padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
     }
+    .coupon-container-{{section.id}}{
+      background-image:{{section.settings.coupon_code_container }};
+      padding:20px;
+      display:flex;
+      border-radius:10px;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+    }
 
     @media screen and (min-width: 750px) {
       .section-{{ section.id }}-padding {
@@ -425,7 +434,31 @@
 
             {%- when 'variant_picker' -%}
               {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
-            {%- when 'buy_buttons' -%}
+                <div id="discount_wrapper">
+                  {% assign coupon_code=product.selected_or_first_available_variant.metafields.custom.coupon_code %}
+                  {% if coupon_code %}
+                    <div class="coupon-container-{{section.id}}">
+                      <h2 class="coupon-container_heading"> Variant Specific discount</h2>
+                      <div class="discount_code_container">
+                        <input id="couponCode" type="text" value={{ coupon_code }}>
+                        <button class="coupon-container_copybtn" onclick="copyText()">Copy code</button>
+                      </div>
+                  </div>
+                  {% endif %}
+                </div>
+              
+
+
+            
+              {%- when 'buy_buttons' -%}
+              <div class="custom-input-field">
+              <label for="custom_input">Enter DOB:</label>
+              <input id="custom_input" type="date"/>
+              </div>
+              
+              <div class="custom_button_container">
+                <button  class="custom-button-secondary" id="custom_button"  data-quantity={{cart_qty }} data-variant-id="{{ product.selected_or_first_available_variant.id }}">Custom ATC</button>
+              </div>
               {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true -%}
               
               {%- unless shop.enabled_payment_types == empty -%}
@@ -2208,6 +2241,15 @@
       "id": "enable_video_looping",
       "default": false,
       "label": "t:sections.main-product.settings.enable_video_looping.label"
+    },
+    {"type":"header",
+      "content":"Coupon container Bg"
+    },
+    {
+      "type":"color_background",
+      "id":"coupon_code_container",
+      "label":"Coupon Container bgColor",
+      "default":"linear-gradient(to right,#ffffff, #000000)"
     },
     {
       "type": "header",

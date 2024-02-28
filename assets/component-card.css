@@ -518,12 +518,20 @@ summary a{
   flex-direction: column;
   justify-content: space-between;
 }
+.nav-menu__sub-links{
+  padding-left:10%;
+}
+.nav-menu__sub-links:hover a,.nav-menu__sub-sub-links:hover a{
+  color: #d03c3f;
+}
+.nav-menu__sub-sub-links{
+  padding-left:20%;
+}
 .nav-menu > details > summary{
   background-color:#F5F5F5;
   border-radius: 13px;
   padding: 8px 25px 8px 15px;
-  margin-bottom:10px;
-  
+  margin-bottom:10px; 
 }
 .menu-border[open]{
   border:1px solid gray;

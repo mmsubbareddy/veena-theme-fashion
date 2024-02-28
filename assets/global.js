@@ -190,6 +190,8 @@ class QuantityInput extends HTMLElement {
 
   validateQtyRules() {
     const value = parseInt(this.input.value);
+    const customATCBtn=document.querySelector("#custom_button");
+    customATCBtn.setAttribute("data-quantity",value);
     const price= document.getElementById(`price-${this.dataset.section}`)
     const priceWithCurrency= price.querySelector('.price-item').textContent.split(' ');
     //console.log(price.querySelector('.price-item').textContent.split(' '))
@@ -197,7 +199,6 @@ class QuantityInput extends HTMLElement {
     const valueElement = priceWithCurrency.filter(element => /[0-9,]+/.test(element));
     // Extract the first element from the filtered array
     const currentPrice = valueElement[0].trim();
-    console.log(currentPrice);
     const productForm = document.getElementById(`product-form-${this.dataset.section}`);
     if (!productForm) return;
     const addButton = productForm.querySelector('[name="add"]');
@@ -1131,11 +1132,18 @@ class VariantSelects extends HTMLElement {
       .then((responseText) => {
         // prevent unnecessary ui changes from abandoned selections
         if (this.currentVariant.id !== requestedVariantId) return;
-
         const html = new DOMParser().parseFromString(responseText, 'text/html');
         const destination = document.getElementById(`price-${this.dataset.section}`);
         document.querySelector("#variantText").innerHTML =
         html.querySelector("#variantText").innerHTML; /*here i am adding variant description for each variant */
+        //console.log(html.querySelector("section"))
+        document.querySelector("#custom_button").setAttribute("data-variant-id",html.querySelector("#custom_button").dataset.variantId) /* here 
+         i am adding the custom button variant change when we click on the custom ATC
+        */
+        document.querySelector("#discount_wrapper").innerHTML=html.querySelector("#discount_wrapper").innerHTML;
+        
+          
+     
 
         const source = html.getElementById(
           `price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
@@ -1262,7 +1270,6 @@ class ProductRecommendations extends HTMLElement {
   constructor() {
     super();
   }
-
   connectedCallback() {
     const handleIntersection = (entries, observer) => {
       if (!entries[0].isIntersecting) return;
@@ -1297,3 +1304,49 @@ class ProductRecommendations extends HTMLElement {
 }
 
 customElements.define('product-recommendations', ProductRecommendations);
+
+if(document.querySelector(".custom_button_container")){
+  const customBtnContainer=document.querySelector(".custom_button_container")
+  customBtnContainer.addEventListener("click",(event)=>{
+  let customBtn=event.target;
+  let variantId=customBtn.dataset.variantId;
+  let quantity=customBtn.dataset.quantity;
+  let cart = document.querySelector('cart-notification') ||document.querySelector('cart-drawer')
+  console.log(cart);
+  let formData = {
+    'items': [{
+    'id':variantId,
+    "quantity":quantity,
+    "properties":{
+      "DOB":`${document.getElementById("custom_input").value}`
+    }
+    }],
+  "sections":cart.getSectionsToRender().map((section)=>section.id)
+  };
+  fetch('/cart/add.js', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData)
+  })
+  .then(response => {
+    return response.json();
+  })
+  .then((responseData)=>{
+    cart.renderContents(responseData)
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  })
+  
+  })
+}
+
+function copyText() {
+  const copyText = document.querySelector("#couponCode")
+  console.log(copyText.textContent)
+  copyText.select();
+  navigator.clipboard.writeText(copyText.value)
+  
+}

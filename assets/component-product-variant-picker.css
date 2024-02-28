@@ -167,7 +167,41 @@ variant-selects {
   box-shadow: 0 0 0 3px rgb(var(--color-background)) inset;
 }
 /* custom color swatches css end */
+/* custom input field and custom btn css */
+.custom-input-field{
+  display: flex;
+  flex-direction: column;
+}
+.custom-input-field > input{
+  max-width:30% ;
+  outline: none;
+}
 
 .disabled-variant{
   box-shadow: 0 0 0 8px rgb(var(--color-background)) inset;
+}
+/* .coupon_code{
+  border:1px solid white;
+} */
+.discount_code_container{
+  display: flex;
+  margin-left:20%;
+}
+#couponCode{
+ color: white;
+ width:30%;
+ background-color: transparent;
+ padding:10px;
+ outline: none;
+ border:1px dashed white;
+}
+.coupon-container_copybtn{
+  width:30%;
+  background-color: white;
+  color:blueviolet;
+  border:1px dashed white;
+  padding: 3px;
+}
+.coupon-container_heading{
+  color: white;
 }

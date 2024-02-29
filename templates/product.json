@@ -27,14 +27,6 @@
             "swatch_shape": "circle"
           }
         },
-        "inventory_VGkgyq": {
-          "type": "inventory",
-          "settings": {
-            "text_style": "body",
-            "inventory_threshold": 10,
-            "show_inventory_quantity": true
-          }
-        },
         "quantity_selector": {
           "type": "quantity_selector",
           "settings": {
@@ -62,6 +54,21 @@
           "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/preview_badge\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
           }
+        },
+        "text_4hMQJ3": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        },
+        "inventory_Hc3t6K": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 0,
+            "show_inventory_quantity": true
+          }
         }
       },
       "block_order": [
@@ -69,12 +76,13 @@
         "title",
         "price",
         "variant_picker",
-        "inventory_VGkgyq",
         "quantity_selector",
         "buy_buttons",
         "description",
         "share",
-        "judge_me_reviews_preview_badge_QUAPwd"
+        "judge_me_reviews_preview_badge_QUAPwd",
+        "text_4hMQJ3",
+        "inventory_Hc3t6K"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -159,6 +167,48 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "rich_text_rBddbg": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_xniVeL": {
+          "type": "heading",
+          "settings": {
+            "heading": "Talk about your brand",
+            "heading_size": "h1"
+          }
+        },
+        "text_LCtADV": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+          }
+        },
+        "button_RNAx6j": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_xniVeL",
+        "text_LCtADV",
+        "button_RNAx6j"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
@@ -166,6 +216,7 @@
     "section_images_with_grid_VYPHqD",
     "wizaah_recently_viewed_products_8CWmgG",
     "related-products",
-    "17084306039b1ada61"
+    "17084306039b1ada61",
+    "rich_text_rBddbg"
   ]
 }

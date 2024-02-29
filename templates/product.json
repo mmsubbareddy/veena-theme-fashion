@@ -120,6 +120,12 @@
         "padding_bottom": 16
       }
     },
+    "wizaah_recently_viewed_products_8CWmgG": {
+      "type": "wizaah-recently-viewed-products",
+      "settings": {
+        "title": "Recently viewed"
+      }
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -158,6 +164,7 @@
   "order": [
     "main",
     "section_images_with_grid_VYPHqD",
+    "wizaah_recently_viewed_products_8CWmgG",
     "related-products",
     "17084306039b1ada61"
   ]

@@ -1,5 +1,4 @@
 window.wizaah = window.wizaah || {};
-console.log(window.wizaah)
 wizaah.RecentlyViewedProducts = (function() {
   function RecentlyViewedProducts(element) {
   	this.container = document.querySelector('[data-section-type="' + element + '"]');

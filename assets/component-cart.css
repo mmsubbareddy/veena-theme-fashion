@@ -224,3 +224,8 @@ cart-items {
     gap: 1rem;
   }
 }
+/* custom cart css */
+.cart__warnings{
+  background:#f5f5f5;
+  border-radius:16px;
+}

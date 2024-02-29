@@ -538,3 +538,7 @@ summary a{
   border-radius:13px;
   margin-bottom: 10px;
 }
+/* cart drawer css */
+.drawer__inner{
+  border-top-left-radius: 20px;
+}

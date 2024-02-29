@@ -121,6 +121,7 @@
                   price_class: 'price--large'
                 -%}
               </div>
+              <hr/>
               {%- if product.quantity_price_breaks_configured? -%}
                 <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
                   <span>{{ 'products.product.volume_pricing.note' | t }}</span>
@@ -437,19 +438,17 @@
                 <div id="discount_wrapper">
                   {% assign coupon_code=product.selected_or_first_available_variant.metafields.custom.coupon_code %}
                   {% if coupon_code %}
+                    <div class="left-groove"> </div>
                     <div class="coupon-container-{{section.id}}">
                       <h2 class="coupon-container_heading"> Variant Specific discount</h2>
                       <div class="discount_code_container">
                         <input id="couponCode" type="text" value={{ coupon_code }}>
                         <button class="coupon-container_copybtn" onclick="copyText()">Copy code</button>
                       </div>
-                  </div>
+                    </div>
+                    <div class="right-groove"> </div>
                   {% endif %}
                 </div>
-              
-
-
-            
               {%- when 'buy_buttons' -%}
               <div class="custom-input-field">
               <label for="custom_input">Enter DOB:</label>

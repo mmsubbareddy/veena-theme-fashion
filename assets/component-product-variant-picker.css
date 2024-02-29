@@ -180,9 +180,23 @@ variant-selects {
 .disabled-variant{
   box-shadow: 0 0 0 8px rgb(var(--color-background)) inset;
 }
-/* .coupon_code{
-  border:1px solid white;
-} */
+#discount_wrapper{
+  position: relative;
+}
+.left-groove,.right-groove{
+  position: absolute;
+  top:38%;
+  background-color: #fff;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+.left-groove{
+  left: -2.5%;
+}
+.right-groove{
+  right: -2.5%;
+}
 .discount_code_container{
   display: flex;
   margin-left:20%;

@@ -3747,8 +3747,10 @@ details-disclosure > details {
   width: 100%;
   border-radius: 2rem;
   background: #F2F0FF;
-  padding: 0.75rem 2rem;
-  margin: 1.5rem 0 0.5rem;
+  /* padding: 0.75rem 2rem;
+  margin: 1.5rem 0 0.5rem; */
+  background: transparent;
+  margin-top: 5px;
 }
 .cart-drawer__black {
   color: #111314;
@@ -3758,17 +3760,21 @@ details-disclosure > details {
   background: #fff;
   border-radius: 1rem;
   position: relative;
-  margin: 1.4rem 0 0.75rem;
+  margin: 15px 0px 0px;
 }
 .shipping-bar .shipping-bar__filled {
   height: 100%;
   border-radius: 1rem;
   transition: all .75s ease-in-out;
-  background-color: #AFAFED;
+  background-color: green;
 }
 .shipping-bar .shipping__icon {
   position: absolute;
   transition: all .75s ease-in-out;
   transform: translate(-70%,-45%) rotate(30deg);
+}
+.shipping-bar__message p{
+  color: white;
+  margin: 0px;
 }
 /* free shiping bar css added  */

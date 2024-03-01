@@ -228,4 +228,20 @@ cart-items {
 .cart__warnings{
   background:#f5f5f5;
   border-radius:16px;
+  margin-bottom: 20px;
+}
+.breadcrumbs-container{
+  padding: 15px 0px;
+}
+.breadcrumbs__list li:first-child a{
+  font-weight: 500;
+}
+.breadcrumbs__list li:first-child a:hover{
+  color:#d03c3f;
+}
+.cart__login-paragraph a:hover{
+  color: #d03c3f;
+}
+.cart__login-title{
+  font-size: 24px;
 }

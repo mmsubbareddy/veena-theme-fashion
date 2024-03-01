@@ -59,18 +59,22 @@
           {%- endif -%}
         </div>
       {%- endif -%}
-      {% render 'free-shipping' %}
-      <div  class="drawer__header">
-        <h2 class="drawer__heading">{{ 'sections.cart.title' | t }}</h2>
-        <button
-          class="drawer__close"
-          type="button"
-          onclick="this.closest('cart-drawer').close()"
-          aria-label="{{ 'accessibility.close' | t }}"
-        >
+{% comment %} here i am adding the cart-drawer header {% endcomment %}
+      <div class="drawer__header">
+        <div class="drawer__title-close-wrapper">
+          <h2 class="drawer__heading">{{ 'sections.cart.title' | t }}</h2>
+          <button
+            class="drawer__close"
+            type="button"
+            onclick="this.closest('cart-drawer').close()"
+            aria-label="{{ 'accessibility.close' | t }}"
+          >
           {% render 'icon-close' %}
-        </button>
+          </button>
+        </div>
+        {%  render 'free-shipping'  %}
       </div>
+
       <cart-drawer-items
         {% if cart == empty %}
           class=" is-empty"

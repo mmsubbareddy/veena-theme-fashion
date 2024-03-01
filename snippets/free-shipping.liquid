@@ -12,11 +12,14 @@ Uses : {%  render 'free-shipping'  %}
         assign perc_change = 100 | minus: perc_change
       endif
     %}
+
     {% if perc_change == 100 %}
-      <div class="shipping-bar__title font-bold text-md cart-drawer__black">Free shipping</div>
+      <div class="shipping-bar__title font-bold text-md cart-drawer__black">
+        Spent more <strong>{{ change | times: 100 | money }}</strong> extra for free shipping
+      </div>
     {% else %}
       <div class="shipping-bar__message cart-drawer__black h6">
-        <p>
+        <p >
           You are <strong>{{ change | times: 100 | money }}</strong> away from <strong>free shipping*</strong>
         </p>
       </div>
@@ -35,7 +38,9 @@ Uses : {%  render 'free-shipping'  %}
     </div>
     {% if perc_change == 100 %}
       <div class="shipping-bar__message cart-drawer__black h6">
-        <p><strong>Yay!!</strong> you unlocked <strong>free shipping</strong></p>
+        <p>
+        <strong>Congratulations!</strong> You qualify for <strong>free shipping</strong>
+      </p>
       </div>
     {% endif %}
   </div>

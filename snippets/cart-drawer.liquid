@@ -59,10 +59,11 @@
           {%- endif -%}
         </div>
       {%- endif -%}
-{% comment %} here i am adding the cart-drawer header {% endcomment %}
+{% comment %} here i am adding the cart-drawer header and freeshiping bar {% endcomment %}
       <div class="drawer__header">
         <div class="drawer__title-close-wrapper">
-          <h2 class="drawer__heading">{{ 'sections.cart.title' | t }}</h2>
+          <h2 class="drawer__heading">Shopping cart({{ cart.item_count }})</h2>
+          {% comment %} {{ 'sections.cart.title' | t }} this is acutual title of cart drawer {% endcomment %} 
           <button
             class="drawer__close"
             type="button"

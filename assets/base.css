@@ -3747,8 +3747,8 @@ details-disclosure > details {
   width: 100%;
   border-radius: 2rem;
   background: #F2F0FF;
-  /* padding: 0.75rem 2rem;
-  margin: 1.5rem 0 0.5rem; */
+  padding: 0.75rem 2rem;
+  /* margin: 1.5rem 0 0.5rem; */
   background: transparent;
   margin-top: 5px;
 }
@@ -3773,8 +3773,20 @@ details-disclosure > details {
   transition: all .75s ease-in-out;
   transform: translate(-70%,-45%) rotate(30deg);
 }
+.shipping-bar__title{
+  color: black;
+}
 .shipping-bar__message p{
-  color: white;
+  color: black;
   margin: 0px;
+}
+.drawer__title-close-wrapper{
+  display: flex;
+  justify-content: start;
+  width: 90%;
+}
+.drawer__title-close-wrapper .drawer__close{
+  color: white;
+  margin-right: 8%;
 }
 /* free shiping bar css added  */

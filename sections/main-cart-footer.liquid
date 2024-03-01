@@ -58,7 +58,7 @@
                   {%- endif -%}
                 </div>
 
-                <div class="totals">
+                <div  class="totals">
                   <h2 class="totals__total">{{ 'sections.cart.estimated_total' | t }}</h2>
                   <p class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
                 </div>
@@ -74,7 +74,11 @@
                     {{ 'sections.cart.taxes_and_shipping_at_checkout' | t }}
                   {%- endif -%}
                 </small>
+                <div>
+                  {% render 'free-shipping' %}
+                </div>
               </div>
+             
             {%- else -%}
               <div class="cart__ctas" {{ block.shopify_attributes }}>
                 <noscript>
@@ -86,7 +90,7 @@
                 <button
                   type="submit"
                   id="checkout"
-                  class="cart__checkout-button button"
+                  class="custom-button-secondary_color"
                   name="checkout"
                   {% if cart == empty %}
                     disabled

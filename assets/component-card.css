@@ -544,7 +544,7 @@ summary a{
 }
 .drawer__inner{
   border-top-left-radius: 20px;
-  padding: 0px;
+  padding: 0px !important;
 }
 .drawer__header{
   display: flex;

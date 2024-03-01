@@ -557,3 +557,7 @@ summary a{
 .drawer__title-close-wrapper .drawer__heading{
   color: white;
 }
+#CartDrawer-ColumnProduct,#CartDrawer-ColumnTotal{
+  font-size: 20px;
+  font-weight: 700;
+}

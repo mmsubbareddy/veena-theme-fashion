@@ -846,3 +846,61 @@ li[data-address] > h2 {
  .custom-button-secondary_color_log:hover:before {
 	 width: 100%;
 }
+.register-main-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.register-form-input-fields{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-bottom: 20px;
+}
+.register-form-input-labels{
+  color: black;
+  font-weight: 500;
+}
+.register-form-login:hover{
+  color: #d03c3f !important;
+}
+/* account-page css */
+.account-details-page{
+  display: flex;
+  gap:13px;
+}
+.account-details-container{
+  width:70%;
+}
+.account-details-container__header{
+  display: flex;
+  gap:10px;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0px;
+}
+.account-details-container__heading{
+  color: black;
+  font-size: 30px;
+  margin: 0px;
+}
+.account-details-container__details{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.account-deatils-conatiner__mail{
+  padding: 20px;
+  border:1px solid #d0bbba;
+  border-radius:10px;
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (max-width:749px){
+  .account-details-page{
+    flex-direction: column;
+  }
+  .account-details-container{
+    width: 100%;
+  }
+}

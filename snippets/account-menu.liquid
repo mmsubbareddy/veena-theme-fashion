@@ -1,0 +1,77 @@
+<style>
+  .accounts-menu{
+    width:25%;
+  }
+  .accounts-menu .accouts-menu-container{
+   padding:0px;
+   margin:0px;
+  }
+.accouts-menu-container .menu-options{
+  list-style-type:none;
+  background:#e3dbd3;
+  margin-bottom:10px;
+  padding:0px 20px 0px;
+  border-radius:4px;
+  width:100%;
+  height: 48px;
+  display:flex;
+  align-items:center;
+}
+.active{
+  border-left:8px solid #BC9891;
+  background:#895E59 !important;
+  a span{
+    color:white;
+  }
+}
+.menu-options a{
+  width:100%;
+  text-decoration:none;
+}
+@media screen and (max-width:749px){
+  .accounts-menu{
+    width:100%;
+  }
+}
+</style>
+{%  assign handleValue= canonical_url | split:"/" | last %}
+<div class="accounts-menu">
+  <ul class="accouts-menu-container">
+    <li class="menu-options  {% if handleValue == "account" %} active {% endif %}">
+        <a  href="/account">
+          {% render 'account-svgs-icons' icon:'account' %}
+          <span>Account Details</span>
+        </a>
+    </li>
+    <li class="menu-options {% if handleValue == "orders" %}active{% endif %}">
+      <a href="/account/pages/orders">
+      {% render 'account-svgs-icons' icon:"order" %}
+        <span>My Order</span>
+      </a>
+    </li>
+    <li class="menu-options {% if handleValue == "addresses" %}active {% endif %}">
+      <a href="/account/addresses">
+        {% render 'account-svgs-icons' icon:"address" %}
+        <span>View Address</span>
+      </a>
+    </li>
+    <li class="menu-options {% if handleValue == "wishlist" %}active {% endif %} ">
+      <a href="/pages/wishlist">
+        {% render 'account-svgs-icons' icon:'wishlist' %}
+      <span>WishList</span>
+      </a>
+    </li>
+    <li class="menu-options {% if handleValue == "faq" %}active {% endif %} ">
+      <a href="/account/faq">
+        {% render 'account-svgs-icons' icon:'help' %}
+        <span>NeedHelp</span>
+      </a>
+    </li>
+    <li class="menu-options {% if handleValue == "logout" %}active {% endif %} ">
+      <a href="/account/logout">
+        {% render 'account-svgs-icons' icon:'logout' %}
+        <span>SignOut</span>
+      </a>
+    </li>
+  </ul>
+</div>

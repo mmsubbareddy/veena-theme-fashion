@@ -15,7 +15,7 @@
 {%- endstyle -%}
 
 <div class="customer account section-{{ section.id }}-padding">
-  <div>
+  {% comment %} <div>
     <h1 class="customer__title">{{ 'customer.account.title' | t }}</h1>
     <a href="{{ routes.account_logout_url }}">
       <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" fill="none" viewBox="0 0 18 19">
@@ -23,9 +23,8 @@
       </svg>
       {{ 'customer.log_out' | t }}
     </a>
-  </div>
-
-  <div>
+  </div> {% endcomment %}
+  {% comment %} <div>
     <div>
       <h2>{{ 'customer.orders.title' | t }}</h2>
 
@@ -146,6 +145,30 @@
       <a href="{{ routes.account_addresses_url }}">
         {{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})
       </a>
+    </div>
+  </div> {% endcomment %}
+  <div class="account-details-page">
+    {% render 'account-menu' %}
+    <div class="account-details-container">
+      <div class="account-details-container__header">
+        {% render 'account-svgs-icons' icon:"account-header-icon" %}
+        <h1 class="account-details-container__heading">My Account</h1>
+      </div>
+      <div class="account-details-container__details">
+        <h2>{{ customer.name | upcase}}</h2>
+        <div class="account-deatils-conatiner__mail">
+          <span>{{ customer.email }}</span>
+        </div>
+        <div class="account-deatils-conatiner__mail">
+          <span>{{ customer.email }}</span>
+          <span>{{ customer.default_address.address1 }}</span>
+          <span>{{ customer.default_address.city }}</span>
+          <span>{{ customer.default_address.state }}</span>
+          <span>{{ customer.default_address.country }}</span>
+        </div>
+        
+        
+      </div>
     </div>
   </div>
 </div>

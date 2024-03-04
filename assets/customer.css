@@ -869,6 +869,9 @@ li[data-address] > h2 {
   display: flex;
   gap:13px;
 }
+.account-details-page__menu{
+  width:30%;
+}
 .account-details-container{
   width:70%;
 }

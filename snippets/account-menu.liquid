@@ -1,6 +1,7 @@
 {{ 'section-account-menu.css' | asset_url | stylesheet_tag }}
 
 {%  assign handleValue= canonical_url | split:"/" | last %}
+
 <div class="accounts-menu">
   <ul class="accouts-menu-container">
     <li class="menu-options  {% if handleValue == "account" %} active {% endif %}">

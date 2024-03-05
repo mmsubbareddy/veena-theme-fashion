@@ -1,39 +1,5 @@
-<style>
-  .accounts-menu{
-    width:100%;
-  }
-  .accounts-menu .accouts-menu-container{
-   padding:0px;
-   margin:0px;
-  }
-.accouts-menu-container .menu-options{
-  list-style-type:none;
-  background:#e3dbd3;
-  margin-bottom:10px;
-  padding:0px 20px 0px;
-  border-radius:4px;
-  width:100%;
-  height: 48px;
-  display:flex;
-  align-items:center;
-}
-.active{
-  border-left:8px solid #BC9891;
-  background:#895E59 !important;
-  a span{
-    color:white;
-  }
-}
-.menu-options a{
-  width:100%;
-  text-decoration:none;
-}
-@media screen and (max-width:749px){
-  .accounts-menu{
-    width:100%;
-  }
-}
-</style>
+{{ 'section-account-menu.css' | asset_url | stylesheet_tag }}
+
 {%  assign handleValue= canonical_url | split:"/" | last %}
 <div class="accounts-menu">
   <ul class="accouts-menu-container">

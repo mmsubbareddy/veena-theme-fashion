@@ -483,7 +483,7 @@
   }
 
   .account table td:first-of-type {
-    padding-top: 1.2rem;
+    /* padding-top: 1.2rem; */
     padding-bottom: 1.2rem;
   }
 }
@@ -870,17 +870,18 @@ li[data-address] > h2 {
   gap:13px;
 }
 .account-details-page__menu{
-  width:30%;
+  width:25%;
 }
 .account-details-container{
   width:70%;
 }
 .account-details-container__header{
   display: flex;
-  gap:10px;
+  gap:15px;
   justify-content: flex-start;
   align-items: center;
-  margin: 0px;
+  margin:0px;
+  margin-bottom: 2%;
 }
 .account-details-container__heading{
   color: black;
@@ -903,7 +904,57 @@ li[data-address] > h2 {
   .account-details-page{
     flex-direction: column;
   }
+  .account-details-page__menu{
+    width:100%;
+  }
   .account-details-container{
     width: 100%;
   }
+}
+/* this css belongs to order tab */
+.address-container{
+  display:flex;
+  gap:20px;
+}
+.address-container__menu{
+  width:27%;
+}
+.address_container__content{
+  width:70%;
+}
+.address-container__info{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+.address-container__heading{
+  margin:30px 0px !important;
+}
+.table__heading-row{
+  background:#DCD6D3;
+}
+thead tr th{
+  font-weight:700 !important;
+}
+td .view-button{
+  border: 1px solid gray;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  color: black;
+}
+td .view-button:hover{
+  color: #d03c3f;
+}
+@media screen and (max-width:749px){
+  .address-container{
+      flex-direction:column;
+  }
+  .address-container__menu{
+  width:100%;
+}
+.address_container__content{
+  width:100%;
+}
 }

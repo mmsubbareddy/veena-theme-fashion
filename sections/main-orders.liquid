@@ -12,43 +12,6 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
-  .address-container{
-        display:flex;
-        gap:20px;
-    }
-    .address-container__menu{
-        width:27%;
-    }
-    .address_container__content{
-        width:70%;
-    }
-    .address-container__info{
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-        align-items:center;
-    }
-    .address-container__heading{
-        margin:30px 0px !important;
-    }
-    .table__heading-row{
-        background:#DCD6D3;
-    }
-    thead tr th{
-        font-weight:700 !important;
-        font-size:100px;
-    }
-    @media screen and (max-width:749px){
-        .address-container{
-            flex-direction:column;
-        }
-        .address-container__menu{
-        width:100%;
-    }
-    .address_container__content{
-        width:100%;
-    }
-    }
 {%- endstyle -%}
 <div class="customer account section-{{ section.id }}-padding">
     <div class="address-container">
@@ -78,7 +41,11 @@
                           {{ 'customer.orders.fulfillment_status' | t }}
                         </th>
                         <th id="ColumnTotal" scope="col" role="columnheader">{{ 'customer.orders.total' | t }}</th>
-                      </tr>
+                        <th>Action</th>
+                        <th>Track order details</th>
+                        <th>Cancle</th>
+                        <th>Return</th>
+                    </tr>
                     </thead>
                     <tbody role="rowgroup">
                       {%- for order in customer.orders -%}
@@ -116,6 +83,11 @@
                           <td headers="RowOrder ColumnTotal" role="cell" data-label="{{ 'customer.orders.total' | t }}">
                             {{ order.total_net_amount | money_with_currency }}
                           </td>
+                          <td><a class="view-button" href="{{ order.customer_url }}">view</a></td>
+                          <td><a class="view-button" href="{{ order.customer_url }}">Track Order</a></td>
+                          <td><a class="view-button" href="{{ order.customer_url }}">cancle</a></td>
+                          <td><a class="view-button" href="{{ order.customer_url }}">Return</a></td>
+                          
                         </tr>
                       {%- endfor -%}
                     </tbody>
@@ -123,7 +95,6 @@
                 {%- else -%}
                   <p>{{ 'customer.orders.none' | t }}</p>
                 {%- endif -%}
-        
                 {%- if paginate.pages > 1 -%}
                   {%- if paginate.parts.size > 0 -%}
                     <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">

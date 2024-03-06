@@ -82,12 +82,15 @@
 .mega-menu .mega-menu__list--condensed {
   display: block;
 }
-
 .mega-menu__list--condensed .mega-menu__link {
   font-weight: normal;
 }
 /* custom css for menu options */
+
 .each-option-container{
   display: flex;
   justify-content: space-between;
+}
+.header__menu-item svg{
+  display: none;
 }

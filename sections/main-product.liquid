@@ -247,7 +247,7 @@
                     <span>({{- 'products.product.quantity.in_cart_html' | t: quantity: cart_qty -}})</span>
                   </span>
                 </label> 
-                <div class="price-per-item__container">
+                <div  class="price-per-item__container">
                   <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
                     <button     class="quantity__button no-js-hidden" name="minus" type="button">
                       <span class="visually-hidden">
@@ -407,7 +407,11 @@
                   </volume-pricing>
                 {%- endif -%}
               </div>
-             
+              {% comment %} pincode checker container {% endcomment %}
+             <div  class="pincode-checker-wraper">
+                <input type="text"/>
+                <button>check</button>
+             </div>
             {%- when 'popup' -%}
               <modal-opener
                 class="product-popup-modal__opener no-js-hidden quick-add-hidden"

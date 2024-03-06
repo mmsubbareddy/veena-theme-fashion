@@ -1,0 +1,111 @@
+<style>
+.custom-section-header .page-width{
+  padding-top:1%;
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+}
+.custom-navigation ul{
+  padding: 0px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  list-style-type: none;
+}
+.custom-navigation ul li a{
+  text-decoration:none;
+  color:black;
+  font-weight:bold;
+}
+.custom-navigation__logo img{
+  width:80px;
+  height:50px;
+} 
+.custom-navigation__icons,.custom-navigation__logo,.custom-navigation{
+  width:33.3%;
+}
+.custom-navigation__icons,.custom-navigation__logo{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+</style>
+
+
+<header class="custom-section-header">
+    <div class="page-width">
+        <nav class="custom-navigation">
+          <ul>
+            {% for link in section.settings.link_list.links %}
+              <li>
+              {% if link != blank %}
+                <a href="{{ link.url }}">
+                    {{ link.title }}
+                </a>
+              {% endif %}
+              </li>     
+            {% endfor %}
+          </ul>
+        </nav>
+        <div class="custom-navigation__logo">
+            {% if section.settings.logo != blank %}
+                <img src="{{ section.settings.logo | image_url }}" alt="navigation-logo" width="100" height="100"/>
+            {% else %}
+            <h2>{{ shop.name }}</h2>
+            {% endif %}
+        </div>
+        <div class="custom-navigation__icons">
+          {% if section.settings.show_icons != blank %}
+           {{ "icons" }}
+          {% endif %}
+        </div>
+    </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "label": "Logo",
+      "id": "logo"
+    },
+    {
+      "type": "link_list",
+      "label": "Navlist",
+      "id": "link_list"
+    },
+    {
+      "type": "checkbox",
+      "label": "Show icons",
+      "id": "show_icons"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "megamenu",
+      "name": "Megamenu",
+      "settings": [
+        {
+          "type": "image_picker",
+          "label": "Desktop image",
+          "id": "desktop_image"
+        },
+        {
+          "type": "text",
+          "label": "Mega menu title",
+          "id": "mega_menu_title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "My New Section"
+    }
+  ]
+}
+{% endschema %}

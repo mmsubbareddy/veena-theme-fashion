@@ -1,0 +1,83 @@
+<div class="section-padding-{{ section.id }}">
+  <div class="page-width">
+    <div class="section-container">
+      <div class="section-container__title">
+        {% if section.settings.section_title != blank %}
+          <h2>{{ section.settings.section_title }}</h2>
+        {% endif %}
+      </div>
+      <div class="section-container__tabs">
+        {% if section.blocks.size > 0 %}
+          {% for product in section.settings.selected_collection %}
+
+          {%endfor%}
+        {%endif%}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+{% schema %}
+{
+  "name": "custom tab switching",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "richtext",
+      "label": "section title",
+      "id": "section_title",
+      "default": "<p>section title</p>",
+      "info": "this is the section title"
+    },
+    {
+      "type": "range",
+      "label": "Padding Top",
+      "id": "padding_top",
+      "default": 20,
+      "info": "padding top details",
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "label": "Padding Bottom",
+      "id": "padding_bottom",
+      "default": 20,
+      "info": "Padding bottom details",
+      "min": 0,
+      "max": 100,
+      "step": 1
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab_item",
+      "name": "tab",
+      "settings": [
+        {
+          "type": "richtext",
+          "label": "tab item title",
+          "id": "tab_item_title",
+          "default": "<p>block title</p>",
+          "info": "this the block title"
+        },
+        {
+          "type": "collection",
+          "label": "Select Collection",
+          "id": "selected_collection",
+          "info": "Select the required Collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "custom tab switching"
+    }
+  ]
+}
+{% endschema %}

@@ -66,10 +66,9 @@
                           </ul>
                         {%- endif -%}
                       </li>
-                      
                     {%- endfor -%}
                   </ul>
-                  <img src="https://cdn.shopify.com/s/files/1/0578/5819/5587/files/nav--{{ link.title | handleize}}.jpg" alt="{{ link.title | handleize }}"/>
+                  <img src="https://cdn.shopify.com/s/files/1/0578/5819/5587/files/nav--{{ link.title | handleize}}.jpg" width="250" height="25  0" alt="{{ link.title | handleize }}"/>
                 </div>
                 </div>
             </details>
@@ -96,3 +95,29 @@
     {%- endfor -%}
   </ul>
 </nav>
+
+<script>
+  let navLink = document.querySelectorAll(".mega-menu")
+
+  navLink.forEach(each=>{
+    each.addEventListener("mouseover", ()=>{
+      navLink.forEach(eachEl=>{
+        eachEl.removeAttribute("open")
+      })
+      each.setAttribute("open","true")
+    })
+  })
+
+
+  let subba = document.querySelectorAll(".mega-menu__content")
+
+  subba.forEach(each=>{
+    each.addEventListener("mouseout", ()=>{
+      navLink.forEach(eachEl=>{
+        eachEl.removeAttribute("open")
+      })
+    })
+  })
+  
+
+</script> 

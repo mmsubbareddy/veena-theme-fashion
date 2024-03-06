@@ -1,5 +1,4 @@
-  
-  
+
   {% liquid
     assign current_variant = product.selected_or_first_available_variant
     assign featured_image = current_variant.image | default: product.featured_image
@@ -81,8 +80,6 @@
         </a>
     </div>
 
-
-    
     <div class="product-card__content {{ alignment }} ">
         <div class="product-card__variants">
           {% unless product.has_only_default_variant %}

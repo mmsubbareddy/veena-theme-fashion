@@ -1,14 +1,59 @@
 {
-    "sections": {
-      "main": {
-        "type": "custom-tab-switching-page",
-        "settings": {
-          "padding_top": 28,
-          "padding_bottom": 28
+  "sections": {
+    "main": {
+      "type": "custom-tab-switching-page",
+      "blocks": {
+        "tab_item_ciGtLN": {
+          "type": "tab_item",
+          "settings": {
+            "tab_title": "Best selling",
+            "selected_collection": "best-selling"
+          }
+        },
+        "tab_item_PU4tE4": {
+          "type": "tab_item",
+          "settings": {
+            "tab_title": "shirts",
+            "selected_collection": "shirts"
+          }
+        },
+        "tab_item_3AXqFh": {
+          "type": "tab_item",
+          "settings": {
+            "tab_title": "skin care",
+            "selected_collection": "skin-care"
+          }
+        },
+        "tab_item_Q76ThC": {
+          "type": "tab_item",
+          "settings": {
+            "tab_title": "skin liquid",
+            "selected_collection": "skin-liquids"
+          }
+        },
+        "tab_item_e9Qq6K": {
+          "type": "tab_item",
+          "settings": {
+            "tab_title": "T-shirts",
+            "selected_collection": "t-shirts"
+          }
         }
+      },
+      "block_order": [
+        "tab_item_ciGtLN",
+        "tab_item_PU4tE4",
+        "tab_item_3AXqFh",
+        "tab_item_Q76ThC",
+        "tab_item_e9Qq6K"
+      ],
+      "settings": {
+        "section_title": "<p>section title<\/p>",
+        "padding_top": 28,
+        "padding_bottom": 28
       }
-    },
-    "order": [
-      "main"
-    ]
-  }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

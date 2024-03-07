@@ -6,36 +6,36 @@
         "tab_item_ciGtLN": {
           "type": "tab_item",
           "settings": {
-            "tab_title": "Best selling",
-            "selected_collection": "best-selling"
+            "collection_title": "Best selling",
+            "tab_items": "best-selling"
           }
         },
         "tab_item_PU4tE4": {
           "type": "tab_item",
           "settings": {
-            "tab_title": "shirts",
-            "selected_collection": "shirts"
+            "collection_title": "shirts",
+            "tab_items": "shirts"
           }
         },
         "tab_item_3AXqFh": {
           "type": "tab_item",
           "settings": {
-            "tab_title": "skin care",
-            "selected_collection": "skin-care"
+            "collection_title": "skincare",
+            "tab_items": "skin-care"
           }
         },
         "tab_item_Q76ThC": {
           "type": "tab_item",
           "settings": {
-            "tab_title": "skin liquid",
-            "selected_collection": "skin-liquids"
+            "collection_title": "skin liquid",
+            "tab_items": "skin-liquids"
           }
         },
         "tab_item_e9Qq6K": {
           "type": "tab_item",
           "settings": {
-            "tab_title": "T-shirts",
-            "selected_collection": "t-shirts"
+            "collection_title": "t-shirts",
+            "tab_items": "t-shirts"
           }
         }
       },

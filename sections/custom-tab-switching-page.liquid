@@ -1,126 +1,114 @@
-<style>
-  .section-padding-{{ section.id }}{
-    padding-top:{{section.settings.padding_top |  divided_by: 2}}px;
-    padding-bottom:{{section.settings.padding_bottom |  divided_by: 2}}px;
-  }
-  @media screen and (min-width:749px){
-    .section-padding-{{ section.id }}{
-      padding-top:{{section.settings.padding_top}}px;
-      padding-bottom:{{section.settings.padding_bottom}}px;
-    }
-  }
-  .section-container__title{
-    text-align: center;
-  }
-  .section-container__tabs-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .section-container__tabs-inner-container{
-    padding:10px 10px;
-    display: flex;
-    gap:30px;
-    background:#f5f8fa;
-    border-radius:16px;
-  }
-  .section-container__eachtab{
-    list-style-type:none ;
-    font-weight: 500;
-  }
-</style>
+{{ 'custom-tab-switching.css' | asset_url |  stylesheet_tag }}
+<script src="{{ 'custom-tab-switching.js' |  asset_url }}" defer></script>
 
-<div class="section-padding-{{ section.id }}">
-  <div class="page-width">
-    <div class="section-container">
-      <div class="section-container__title">
-        {% if section.settings.section_title != blank %}
-          <h2>{{ section.settings.section_title }}</h2>
-        {% endif %}
-      </div>
-      {% if section.blocks.size != 0 %}
-        <div class="section-container__tabs-container">
-          <ul class="section-container__tabs-inner-container">
-            {% for each_block in section.blocks %}
-              {% if each_block.settings.tab_title != blank %}
-                <li class="section-container__eachtab">{{each_block.settings.tab_title}}</li>
-              {% endif %}
-            {% endfor %}
-          </ul>
-        </div>
-        <div class="grid grid--2-col grid--3-col-tablet grid--4-col-desktop">
-          {% for block in section.blocks %}
-            {% if block.settings.selected_collection.products.size !=0 %}
-              {% for product in block.settings.selected_collection.products %}
-                <div class="grid__item">
-                  {% render 'eachproduct-card', product: product, section_id: section.id%}
-                </div>
-              {% endfor %}
+{%  style  %} 
+    .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+        padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+        .section-{{ section.id }}-padding {
+            padding-top: {{ section.settings.padding_top }}px;
+            padding-bottom: {{ section.settings.padding_bottom }}px;
+        }
+    }
+{% endstyle %}
+
+
+
+<div class="section-{{ section.id }}-padding">
+    <div class="page-width">
+        <div class="custom-tab-switching">
+            {% if section.settings.section_title %}
+                <h2 class="custom-tab-switching__section-title">{{ section.settings.section_title }}</h2>
             {% endif %}
-          {% endfor %}
-        
+            {% if section.blocks.size != 0 %}
+                <ul class="custom-tab-switching__tabs">
+                    {% for block in section.blocks %}
+                        {% if block.settings.tab_items.products.size != 0 %}
+                            <li class="custom-tab-switching__tab-item" data-tab-id="{{ block.id }}">{{ block.settings.collection_title }}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                <div class="custom-tab-switching__collection grid">
+                    {% for block in section.blocks %}
+                        {% if block.settings.tab_items.products.size != 0 %}
+                            {% for product in block.settings.tab_items.products %}
+                                <div class="grid__item product-container" data-collection-id="{{ block.id }}">
+                                    {% render 'eachproduct-card', product: product, section_id: section.id %}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endif %}
         </div>
-      {% endif %}
     </div>
-  </div>
 </div>
+
+
+
 
 {% schema %}
 {
-  "name": "custom tab switching",
+  "name": "Custom tab switching",
   "tag": "section",
   "settings": [
     {
       "type": "richtext",
-      "label": "section title",
+      "label": "Section title",
       "id": "section_title",
-      "default": "<p>section title</p>",
-      "info": "this is the section title"
+      "default": "<p>Section title</p>",
+      "info": "This is section title"
+    },
+    {
+      "type": "header",
+      "content": "Padding details"
     },
     {
       "type": "range",
-      "label": "Padding Top",
+      "label": "Padding top",
       "id": "padding_top",
       "default": 20,
-      "info": "padding top details",
       "min": 0,
       "max": 100,
-      "step": 1
+      "step": 1,
+      "unit": "px"
     },
     {
       "type": "range",
-      "label": "Padding Bottom",
+      "label": "Padding bottom",
       "id": "padding_bottom",
       "default": 20,
-      "info": "Padding bottom details",
       "min": 0,
       "max": 100,
-      "step": 1
+      "step": 1,
+      "unit": "px"
     }
   ],
   "blocks": [
     {
       "type": "tab_item",
-      "name": "tabItem",
+      "name": "Tab item",
       "settings": [
         {
           "type": "text",
-          "label": "tab title",
-          "id": "tab_title",
-          "info": "this the block title"
+          "label": "Collection title",
+          "id": "collection_title"
         },
         {
           "type": "collection",
-          "label": "Select Collection",
-          "id": "selected_collection",
-          "info": "Select the required Collection"
+          "label": "Collection",
+          "id": "tab_items",
+          "info": "The products in this collection displays"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "custom tab switching"
+      "name": "Custom tab switching"
     }
   ]
 }

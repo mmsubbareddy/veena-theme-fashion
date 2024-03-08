@@ -4,13 +4,15 @@
   Usage:
   {% render 'header-mega-menu' %}
 {% endcomment %}
+<style>
+</style>
 
 <nav class="header__inline-menu">
   <ul class="list-menu list-menu--inline" role="list">
     {%- for link in section.settings.menu.links -%}
       <li>
         {%- if link.links != blank -%}
-          <header-menu>
+          <header-menu >
             <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
               <summary
                 id="HeaderMenu-{{ link.handle }}"
@@ -30,13 +32,13 @@
                 class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
                 tabindex="-1"
               >
-                <div class="each-option-container">
-                  <ul
+                <div width="80%" class="each-option-container">
+                  <ul width="80%"
                     class="mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
                     role="list"
                   >
                     {%- for childlink in link.links -%}
-                      <li>
+                      <li  {% if childlink.title== "INTEREST" %}class="interest-option"{% endif %}>
                         <a
                           id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
                           href="{{ childlink.url }}"
@@ -52,9 +54,10 @@
                             {%- for grandchildlink in childlink.links -%}
                               <li>
                                 <a
+
                                   id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
                                   href="{{ grandchildlink.url }}"
-                                  class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"
+                                  class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %} mega-menu__link--level-3"
                                   {% if grandchildlink.current %}
                                     aria-current="page"
                                   {% endif %}
@@ -68,7 +71,17 @@
                       </li>
                     {%- endfor -%}
                   </ul>
-                  <img src="https://cdn.shopify.com/s/files/1/0578/5819/5587/files/nav--{{ link.title | handleize}}.jpg" width="250" height="250" alt="{{ link.title | handleize }}"/>
+                  {% for block in section.blocks %}
+                    {% if block.settings.text == link.title %}
+                      <img class='mega-menu-image ' src="{{ block.settings.desktop_image | image_url  }}" width="250" height="auto">
+                    {% endif %}
+                    <style>
+                      .each-option-container{
+                        flex-direction: {{block.settings.image_position}};
+                      }
+                    </style>
+
+                  {% endfor %}
                 </div>
                 </div>
             </details>
@@ -109,9 +122,9 @@
   })
 
 
-  let subba = document.querySelectorAll(".mega-menu__content")
+  let megaMenuContainer= document.querySelectorAll(".mega-menu__content")
 
-  subba.forEach(each=>{
+ megaMenuContainer.forEach(each=>{
     each.addEventListener("mouseout", ()=>{
       navLink.forEach(eachEl=>{
         eachEl.removeAttribute("open")
@@ -121,3 +134,6 @@
   
 
 </script> 
+
+
+

@@ -407,11 +407,7 @@
                   </volume-pricing>
                 {%- endif -%}
               </div>
-              {% comment %} pincode checker container {% endcomment %}
-             <div  class="pincode-checker-wraper">
-                <input type="text"/>
-                <button>check</button>
-             </div>
+             
             {%- when 'popup' -%}
               <modal-opener
                 class="product-popup-modal__opener no-js-hidden quick-add-hidden"
@@ -454,14 +450,21 @@
                   {% endif %}
                 </div>
               {%- when 'buy_buttons' -%}
-              <div class="custom-input-field">
+                {% comment %} here i comment the custom add to cart button {% endcomment %}
+              {% comment %} <div class="custom-input-field">
               <label for="custom_input">Enter DOB:</label>
               <input id="custom_input" type="date"/>
-              </div>
-              
+              </div> 
               <div class="custom_button_container">
                 <button  class="custom-button-secondary" id="custom_button"  data-quantity={{cart_qty }} data-variant-id="{{ product.selected_or_first_available_variant.id }}">Custom ATC</button>
               </div>
+              {% endcomment %}
+              {% comment  %} this is the pincode checker container  {% endcomment %}
+              {% comment %} <div  class="pincode-checker-wraper">
+                <input type="text"/>
+                <button>check</button>
+             </div> {% endcomment %}
+
               {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true -%}
               
               {%- unless shop.enabled_payment_types == empty -%}
